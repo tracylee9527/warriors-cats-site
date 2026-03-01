@@ -1,0 +1,464 @@
+/* ============================================
+   Warriors Cats Fan Site — Shared Stylesheet
+   Unofficial Fan Site | Not affiliated with
+   Working Partners Ltd. or HarperCollins
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ---- CSS Variables ---- */
+:root {
+  --forest-dark: #1a2a1a;
+  --forest-mid: #2d4a2d;
+  --forest-light: #4a7c4a;
+  --amber: #c8860a;
+  --amber-light: #e8a020;
+  --cream: #f5efe0;
+  --parchment: #e8dcc8;
+  --text-dark: #1c1408;
+  --text-mid: #3a2e1a;
+  --thunder: #e85c00;
+  --shadow: #4a0080;
+  --wind: #c8a000;
+  --river: #0066aa;
+  --starClan: #8866cc;
+}
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lora', Georgia, serif;
+  background-color: var(--forest-dark);
+  color: var(--cream);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at top, rgba(74, 124, 74, 0.15) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a7c4a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ---- Navigation ---- */
+header {
+  background: linear-gradient(180deg, rgba(10,18,10,0.98) 0%, rgba(20,35,20,0.95) 100%);
+  border-bottom: 2px solid var(--amber);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--amber-light);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo .paw { font-size: 1.5rem; }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--parchment);
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--amber-light);
+  border-color: var(--amber);
+  background: rgba(200, 134, 10, 0.1);
+}
+
+/* ---- Hero Banner ---- */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 5rem 1.5rem 4rem;
+  background: linear-gradient(180deg,
+    rgba(10,18,10,0.6) 0%,
+    rgba(26,42,26,0.8) 60%,
+    var(--forest-dark) 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(74,124,74,0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(200,134,10,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-icon {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 20px rgba(200,134,10,0.5));
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  font-weight: 700;
+  color: var(--amber-light);
+  text-shadow: 0 0 30px rgba(200,134,10,0.4), 0 2px 8px rgba(0,0,0,0.8);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.05em;
+}
+
+.hero .subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--parchment);
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  opacity: 0.9;
+}
+
+.disclaimer-badge {
+  display: inline-block;
+  background: rgba(200,134,10,0.15);
+  border: 1px solid rgba(200,134,10,0.4);
+  color: var(--amber-light);
+  font-size: 0.7rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+}
+
+/* ---- Main Content ---- */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+section {
+  margin-bottom: 3.5rem;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--amber-light);
+  border-bottom: 2px solid var(--amber);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+/* ---- Cards ---- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: linear-gradient(145deg, rgba(45,74,45,0.6), rgba(26,42,26,0.8));
+  border: 1px solid rgba(200,134,10,0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card:hover {
+  border-color: var(--amber);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 20px rgba(200,134,10,0.15);
+  background: linear-gradient(145deg, rgba(60,100,60,0.7), rgba(40,60,40,0.9));
+}
+
+.card-icon { font-size: 2.5rem; margin-bottom: 0.7rem; display: block; }
+
+.card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: var(--amber-light);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--parchment);
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* ---- Clan Color Accents ---- */
+.clan-thunder { border-left: 4px solid var(--thunder); }
+.clan-shadow  { border-left: 4px solid var(--shadow); }
+.clan-wind    { border-left: 4px solid var(--wind); }
+.clan-river   { border-left: 4px solid var(--river); }
+.clan-star    { border-left: 4px solid var(--starClan); }
+
+/* ---- Clan Banner ---- */
+.clan-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.clan-tile {
+  border-radius: 8px;
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clan-tile:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.clan-tile .clan-emblem { font-size: 3rem; display: block; margin-bottom: 0.5rem; }
+.clan-tile h3 { font-family: 'Cinzel', serif; font-size: 1.15rem; margin-bottom: 0.3rem; }
+.clan-tile p  { font-size: 0.82rem; opacity: 0.85; line-height: 1.5; }
+
+.thunder-tile { background: linear-gradient(135deg, #3a1200, #5c2200); color: #ffb880; }
+.shadow-tile  { background: linear-gradient(135deg, #1a0030, #2e0050); color: #cc99ff; }
+.wind-tile    { background: linear-gradient(135deg, #2a2200, #4a3a00); color: #ffe080; }
+.river-tile   { background: linear-gradient(135deg, #001830, #002d55); color: #80ccff; }
+
+/* ---- Info Table ---- */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.info-table th {
+  font-family: 'Cinzel', serif;
+  background: rgba(200,134,10,0.2);
+  color: var(--amber-light);
+  padding: 0.6rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--amber);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+.info-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  color: var(--parchment);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.info-table tr:last-child td { border-bottom: none; }
+.info-table tr:hover td { background: rgba(255,255,255,0.03); }
+
+/* ---- Character Profile Card ---- */
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.char-card {
+  background: rgba(30, 48, 30, 0.8);
+  border: 1px solid rgba(200,134,10,0.3);
+  border-radius: 10px;
+  padding: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.char-card:hover {
+  border-color: var(--amber);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+  transform: translateY(-3px);
+}
+
+.char-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(200,134,10,0.2);
+}
+
+.char-emoji { font-size: 2.8rem; }
+
+.char-header h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  color: var(--amber-light);
+}
+
+.char-header .char-rank {
+  font-size: 0.75rem;
+  color: var(--parchment);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.char-facts { list-style: none; }
+
+.char-facts li {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  padding: 0.3rem 0;
+  color: var(--parchment);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.char-facts li:last-child { border-bottom: none; }
+
+.char-facts .label {
+  color: var(--amber);
+  font-weight: 600;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+/* ---- Book Arc Cards ---- */
+.arc-card {
+  background: linear-gradient(145deg, rgba(45,74,45,0.5), rgba(20,35,20,0.8));
+  border: 1px solid rgba(200,134,10,0.25);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.arc-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--amber-light);
+  margin-bottom: 0.3rem;
+}
+
+.arc-meta {
+  font-size: 0.8rem;
+  color: var(--amber);
+  font-style: italic;
+  margin-bottom: 0.8rem;
+}
+
+.arc-desc {
+  font-size: 0.9rem;
+  color: var(--parchment);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.book-tag {
+  background: rgba(200,134,10,0.15);
+  border: 1px solid rgba(200,134,10,0.35);
+  color: var(--parchment);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+
+/* ---- Footer ---- */
+footer {
+  background: rgba(10,18,10,0.95);
+  border-top: 2px solid var(--amber);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.78rem;
+  color: rgba(245,239,224,0.5);
+  line-height: 1.8;
+}
+
+footer strong { color: var(--amber); }
+
+footer a { color: var(--amber-light); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* ---- Utility ---- */
+.text-amber { color: var(--amber-light); }
+.text-italic { font-style: italic; }
+.mt-sm { margin-top: 0.8rem; }
+.mt-md { margin-top: 1.5rem; }
+
+.intro-text {
+  max-width: 750px;
+  line-height: 1.8;
+  color: var(--parchment);
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.tag-thunder { background: rgba(232,92,0,0.2);  color: #ff9955; border: 1px solid rgba(232,92,0,0.4); }
+.tag-shadow  { background: rgba(74,0,128,0.25); color: #cc88ff; border: 1px solid rgba(74,0,128,0.5); }
+.tag-wind    { background: rgba(200,160,0,0.2); color: #ffe080; border: 1px solid rgba(200,160,0,0.4); }
+.tag-river   { background: rgba(0,102,170,0.25); color: #66bbff; border: 1px solid rgba(0,102,170,0.5); }
+.tag-star    { background: rgba(136,102,204,0.2); color: #bb99ff; border: 1px solid rgba(136,102,204,0.4); }
+.tag-rogue   { background: rgba(100,80,60,0.3); color: #ccaa88; border: 1px solid rgba(100,80,60,0.5); }
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  nav { flex-direction: column; align-items: flex-start; }
+  nav ul { gap: 0.2rem; }
+  .hero { padding: 3rem 1rem 2.5rem; }
+  .card-grid, .char-grid, .clan-banner { grid-template-columns: 1fr; }
+}
