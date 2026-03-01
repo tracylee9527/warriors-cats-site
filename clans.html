@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Four Clans — Warriors Cats Fan Site</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .clan-section {
+      background: linear-gradient(145deg, rgba(30,48,30,0.7), rgba(20,35,20,0.9));
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid rgba(200,134,10,0.25);
+    }
+    .clan-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+    .clan-section .clan-tagline {
+      font-style: italic;
+      opacity: 0.75;
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+      color: var(--parchment);
+    }
+    .clan-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+    }
+    @media (max-width: 650px) {
+      .clan-body { grid-template-columns: 1fr; }
+    }
+    .clan-info-block h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+      opacity: 0.7;
+      text-transform: uppercase;
+    }
+    .clan-info-block p,
+    .clan-info-block ul {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--parchment);
+      opacity: 0.9;
+    }
+    .clan-info-block ul { list-style: none; }
+    .clan-info-block ul li::before { content: "🐾 "; font-size: 0.75rem; }
+
+    /* Clan-specific accents */
+    .thunder-section { border-left: 5px solid var(--thunder); }
+    .thunder-section h2 { color: #ff9955; }
+    .shadow-section  { border-left: 5px solid var(--shadow); }
+    .shadow-section h2  { color: #cc88ff; }
+    .wind-section    { border-left: 5px solid var(--wind); }
+    .wind-section h2    { color: #ffe080; }
+    .river-section   { border-left: 5px solid var(--river); }
+    .river-section h2   { color: #66bbff; }
+
+    .warrior-code-box {
+      background: rgba(200,134,10,0.08);
+      border: 1px solid rgba(200,134,10,0.35);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .warrior-code-box h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--amber-light);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .code-list {
+      list-style: none;
+      counter-reset: code-counter;
+    }
+    .code-list li {
+      counter-increment: code-counter;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 0.5rem 0;
+      font-size: 0.88rem;
+      color: var(--parchment);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      line-height: 1.5;
+    }
+    .code-list li:last-child { border-bottom: none; }
+    .code-list li::before {
+      content: counter(code-counter);
+      background: rgba(200,134,10,0.3);
+      color: var(--amber-light);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      min-width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .gathering-box {
+      background: rgba(136,102,204,0.1);
+      border: 1px solid rgba(136,102,204,0.35);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      margin-top: 1rem;
+    }
+    .gathering-box h4 {
+      font-family: 'Cinzel', serif;
+      color: #bb99ff;
+      margin-bottom: 0.6rem;
+    }
+    .gathering-box p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--parchment);
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======= HEADER ======= -->
+  <header>
+    <nav>
+      <a class="nav-logo" href="index.html">
+        <span class="paw">🐾</span> Warriors Cats
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="clans.html" class="active">The Clans</a></li>
+        <li><a href="characters.html">Characters</a></li>
+        <li><a href="books.html">Book Series</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ======= HERO ======= -->
+  <section class="hero">
+    <span class="hero-icon">🏕️</span>
+    <h1>The Four Clans</h1>
+    <p class="subtitle">Four territories. Four ways of life. One warrior code.</p>
+    <span class="disclaimer-badge">⚠ Unofficial Fan Site — Not affiliated with Working Partners Ltd. or HarperCollins</span>
+  </section>
+
+  <!-- ======= MAIN ======= -->
+  <main>
+
+    <p class="intro-text">
+      The four Clans have coexisted in their shared forest for generations, divided by territory but bound
+      together by the warrior code. Each Clan has its own distinct personality, hunting techniques, and
+      home terrain — and each views the others with a mixture of respect, rivalry, and suspicion.
+    </p>
+
+    <!-- THUNDERCLAN -->
+    <div class="clan-section thunder-section">
+      <h2>🔥 ThunderClan</h2>
+      <p class="clan-tagline">"Courage is not the absence of fear — it is doing what must be done."</p>
+      <div class="clan-body">
+        <div class="clan-info-block">
+          <h4>Territory</h4>
+          <p>Dense oak and pine forest offering plentiful cover. ThunderClan's camp is a sheltered hollow ringed by tall trees and bramble barriers.</p>
+        </div>
+        <div class="clan-info-block">
+          <h4>Traits</h4>
+          <ul>
+            <li>Noble and honorable</li>
+            <li>Excellent stalking hunters</li>
+            <li>Known for taking in loners and outcasts</li>
+            <li>Often at the center of major Clan conflicts</li>
+          </ul>
+        </div>
+        <div class="clan-info-block">
+          <h4>Hunting Style</h4>
+          <p>Stalking prey through undergrowth; specializes in birds and forest rodents. The dense canopy provides natural camouflage during hunts.</p>
+        </div>
+        <div class="clan-info-block">
+          <h4>Notable Leaders</h4>
+          <ul>
+            <li>Firestar — Legendary hero, former kittypet</li>
+            <li>Bluestar — Wise and tragic leader</li>
+            <li>Bramblestar — Son of Tigerstar, chose honor</li>
+            <li>Thunderstar — Ancient founding leader</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHADOWCLAN -->
+    <div class="clan-section shadow-section">
+      <h2>🌑 ShadowClan</h2>
+      <p class="clan-tagline">"Darkness is not evil — it is simply the truth others are too afraid to see."</p>
+      <div class="clan-body">
+        <div class="clan-info-block">
+          <h4>Territory</h4>
+          <p>Shadowy pine forests with marshy ground and Twoleg (human) encroachment. ShadowClan cats thrive where other Clans would struggle.</p>
+        </div>
+        <div class="clan-info-block">
+          <h4>Traits</h4>
+          <ul>
+            <li>Cunning, proud, and fierce</li>
+            <li>Unafraid of Twolegs or their territory</li>
+            <li>Excel in night combat and ambush tactics</li>
+            <li>Often mistrusted by other Clans</li>
+          </ul>
+        </div>
+        <div class="clan-info-block">
+          <h4>Hunting Style</h4>
+          <p>Skilled at hunting in darkness and marshy terrain. ShadowClan cats are known to eat frogs and other prey other Clans avoid.</p>
+        </div>
+        <div class="clan-info-block">
+          <h4>Notable Leaders</h4>
+          <ul>
+            <li>Tigerstar — Powerful and ruthlessly ambitious</li>
+            <li>Blackstar — Stern but ultimately honorable</li>
+            <li>Brokenstar — Cruel, exiled and later blinded</li>
+            <li>Shadowstar — Ancient founding leader</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- WINDCLAN -->
+    <div class="clan-section wind-section">
+      <h2>💨 WindClan</h2>
+      <p class="clan-tagline">"The wind carries no secrets — only those swift enough to follow it know the truth."</p>
+      <div class="clan-body">
+        <div class="clan-info-block">
+          <h4>Territory</h4>
+          <p>Open, rolling moorland with few trees. WindClan's camp is a shallow scoop in the earth, exposed but fast to defend with their unmatched speed.</p>
+        </div>
+        <div class="clan-info-block">
+          <h4>Traits</h4>
+          <ul>
+            <li>Lean, fast, and fiercely independent</li>
+            <li>Closest connection to StarClan</li>
+            <li>Sensitive and easily offended by intruders</li>
+            <li>Loyal to their moor above all else</li>
+          </ul>
+        </div>
+        <div class="clan-info-block">
+          <h4>Hunting Style</h4>
+          <p>Pursuit hunting on open moor — racing down rabbits in open terrain. WindClan cats have slender builds perfectly suited for speed.</p>
+        </div>
+        <div class="clan-info-block">
+          <h4>Notable Leaders</h4>
+          <ul>
+            <li>Tallstar — Long-lived, wise, and just</li>
+            <li>Onestar — Conflicted; once ThunderClan's friend</li>
+            <li>Windstar — Ancient founding leader</li>
+            <li>Harestar — A more recent leader</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIVERCLAN -->
+    <div class="clan-section river-section">
+      <h2>🌊 RiverClan</h2>
+      <p class="clan-tagline">"Like the river, we are patient, deep, and impossible to hold back."</p>
+      <div class="clan-body">
+        <div class="clan-info-block">
+          <h4>Territory</h4>
+          <p>Riverbanks, marshes, and small islands. RiverClan's camp sits on an island or riverbank, and their water borders naturally protect them.</p>
+        </div>
+        <div class="clan-info-block">
+          <h4>Traits</h4>
+          <ul>
+            <li>Sleek, strong swimmers</li>
+            <li>Known for pride and elegance</li>
+            <li>More open to material comforts</li>
+            <li>Considered the wealthiest Clan in resources</li>
+          </ul>
+        </div>
+        <div class="clan-info-block">
+          <h4>Hunting Style</h4>
+          <p>Fishing and swimming. RiverClan cats have water-resistant fur and are the only Clan that regularly hunts fish — a major dietary staple.</p>
+        </div>
+        <div class="clan-info-block">
+          <h4>Notable Leaders</h4>
+          <ul>
+            <li>Crookedstar — Suffered tragedy but remained honorable</li>
+            <li>Leopardstar — Proud and sometimes impulsive</li>
+            <li>Mistystar — Daughter of Bluestar; a fair leader</li>
+            <li>Riverstar — Ancient founding leader</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- WARRIOR CODE -->
+    <section>
+      <h2 class="section-title">The Warrior Code</h2>
+      <p class="intro-text">
+        The warrior code is the set of laws that governs all four Clans. It is ancient, respected, and
+        considered sacred. Breaking the code is one of the gravest offenses a warrior can commit.
+        Below are the core tenets upheld across the series.
+      </p>
+      <div class="warrior-code-box">
+        <h3>📜 Core Tenets</h3>
+        <ol class="code-list">
+          <li>Defend your Clan, even at the cost of your life. You may have friendships with cats from other Clans, but your loyalty must remain to your Clan.</li>
+          <li>Do not hunt or trespass on another Clan's territory.</li>
+          <li>Elders, queens, kits, and injured warriors must be fed before apprentices and warriors. Unless they have permission, apprentices may not eat until they have hunted to feed the elders.</li>
+          <li>Prey is killed only to be eaten. Give thanks to StarClan for its life.</li>
+          <li>A kit must be at least six moons old to become an apprentice.</li>
+          <li>Newly appointed warriors will keep a silent vigil for one night after receiving their warrior name.</li>
+          <li>A cat cannot be made a warrior without having mentored at least one apprentice.</li>
+          <li>The deputy will become Clan leader when the leader dies, retires, or is exiled.</li>
+          <li>After the death or retirement of the deputy, the new deputy must be chosen before moonhigh.</li>
+          <li>A Gathering of all four Clans is held at the full moon during a truce that lasts for the night. There shall be no fighting among Clans at this time.</li>
+          <li>Boundaries must be checked and renewed daily. Challenge all trespassing cats.</li>
+          <li>No warrior can neglect a kit in pain or danger, even if the kit is from a different Clan.</li>
+          <li>The word of the Clan leader is the warrior code.</li>
+          <li>An honorable warrior does not need to kill to win their battles, unless they are outside the warrior code or it is necessary for self-defense.</li>
+          <li>A warrior rejects the soft life of a kittypet.</li>
+        </ol>
+      </div>
+
+      <div class="gathering-box">
+        <h4>⭐ The Gathering</h4>
+        <p>
+          Once a month, under the full moon, all four Clans meet at a neutral location (such as Fourtrees or
+          the Island) to share news. StarClan holds back the clouds to signal that fighting is forbidden.
+          Any aggression during a Gathering is seen as a sign of weakness — and an omen of bad fortune.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <p>
+      🐾 <strong>Warriors Cats Fan Site</strong> — An unofficial fan tribute.<br />
+      Not affiliated with Working Partners Ltd., HarperCollins, or the Erin Hunter author team.<br />
+      All character and Clan names are the intellectual property of their respective owners.<br />
+      For official content, visit <a href="https://www.warriorcats.com" target="_blank" rel="noopener">warriorcats.com</a>.
+    </p>
+  </footer>
+
+</body>
+</html>
