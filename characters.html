@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Characters — Warriors Cats Fan Site</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .filter-btn {
+      background: rgba(45,74,45,0.6);
+      border: 1px solid rgba(200,134,10,0.3);
+      color: var(--parchment);
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: rgba(200,134,10,0.2);
+      border-color: var(--amber);
+      color: var(--amber-light);
+    }
+
+    .char-status {
+      display: inline-block;
+      font-size: 0.68rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .status-living   { background: rgba(74,124,74,0.3); color: #88ff88; border: 1px solid rgba(74,124,74,0.5); }
+    .status-deceased { background: rgba(100,100,100,0.3); color: #aaaaaa; border: 1px solid rgba(100,100,100,0.5); }
+    .status-starclan { background: rgba(136,102,204,0.3); color: #cc99ff; border: 1px solid rgba(136,102,204,0.5); }
+    .status-dark     { background: rgba(80,0,0,0.4); color: #ff8888; border: 1px solid rgba(120,0,0,0.5); }
+
+    .char-desc {
+      font-size: 0.85rem;
+      color: var(--parchment);
+      opacity: 0.85;
+      line-height: 1.65;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .section-divider {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--amber);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 2.5rem 0 1.2rem;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(200,134,10,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======= HEADER ======= -->
+  <header>
+    <nav>
+      <a class="nav-logo" href="index.html">
+        <span class="paw">🐾</span> Warriors Cats
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="clans.html">The Clans</a></li>
+        <li><a href="characters.html" class="active">Characters</a></li>
+        <li><a href="books.html">Book Series</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ======= HERO ======= -->
+  <section class="hero">
+    <span class="hero-icon">😺</span>
+    <h1>Characters</h1>
+    <p class="subtitle">The cats who shaped the destiny of the Clans.</p>
+    <span class="disclaimer-badge">⚠ Unofficial Fan Site — Not affiliated with Working Partners Ltd. or HarperCollins</span>
+  </section>
+
+  <!-- ======= MAIN ======= -->
+  <main>
+
+    <p class="intro-text">
+      The Warriors series features hundreds of memorable characters across its many books. Below are profiles
+      of key cats — organized by Clan — with factual details drawn from across the series. All information
+      is encyclopedic in nature (names, ranks, family ties, notable roles).
+    </p>
+
+    <!-- ===== THUNDERCLAN CHARACTERS ===== -->
+    <div class="section-divider">🔥 ThunderClan</div>
+    <div class="char-grid">
+
+      <div class="char-card clan-thunder">
+        <div class="char-header">
+          <span class="char-emoji">🦊</span>
+          <div>
+            <h3>Firestar <span class="char-status status-starclan">StarClan</span></h3>
+            <div class="char-rank">Leader of ThunderClan</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Born name</span> Rusty (kittypet)</li>
+          <li><span class="label">Clan</span> ThunderClan</li>
+          <li><span class="label">Pelt</span> Bright ginger tabby, green eyes</li>
+          <li><span class="label">Mentor</span> Bluestar</li>
+          <li><span class="label">Mate</span> Sandstorm</li>
+          <li><span class="label">Kits</span> Squirrelflight, Leafpool</li>
+          <li><span class="label">Rank</span> Warrior → Deputy → Leader</li>
+        </ul>
+        <p class="char-desc">
+          A former house cat (kittypet) who joined ThunderClan as an apprentice named Firepaw. He rose
+          through the ranks on merit and eventually became one of the most celebrated leaders in Clan history.
+          He is the protagonist of the original Warriors arc.
+        </p>
+      </div>
+
+      <div class="char-card clan-thunder">
+        <div class="char-header">
+          <span class="char-emoji">🐈‍⬛</span>
+          <div>
+            <h3>Bluestar <span class="char-status status-starclan">StarClan</span></h3>
+            <div class="char-rank">Leader of ThunderClan</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Born name</span> Bluepaw / Bluefur</li>
+          <li><span class="label">Clan</span> ThunderClan</li>
+          <li><span class="label">Pelt</span> Blue-grey, ice-blue eyes</li>
+          <li><span class="label">Sister</span> Snowfur</li>
+          <li><span class="label">Kits</span> Mistyfoot, Stonefur, Mosskit</li>
+          <li><span class="label">Rank</span> Warrior → Deputy → Leader</li>
+        </ul>
+        <p class="char-desc">
+          A noble and deeply complex leader who sacrificed her kits to stop a dangerous rival from becoming
+          deputy. She mentored Fireheart and saw greatness in the young kittypet. Her backstory is told in
+          the super edition <em>Bluestar's Prophecy</em>.
+        </p>
+      </div>
+
+      <div class="char-card clan-thunder">
+        <div class="char-header">
+          <span class="char-emoji">🐱</span>
+          <div>
+            <h3>Bramblestar <span class="char-status status-living">Living</span></h3>
+            <div class="char-rank">Leader of ThunderClan</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Father</span> Tigerstar</li>
+          <li><span class="label">Mother</span> Goldenflower</li>
+          <li><span class="label">Clan</span> ThunderClan</li>
+          <li><span class="label">Pelt</span> Dark brown tabby, amber eyes</li>
+          <li><span class="label">Mate</span> Squirrelflight</li>
+          <li><span class="label">Rank</span> Apprentice → Warrior → Deputy → Leader</li>
+        </ul>
+        <p class="char-desc">
+          Son of the notorious Tigerstar, Bramblestar chose loyalty and honor over his father's dark legacy.
+          He became a trusted deputy under Firestar and eventually leader of ThunderClan. His storyline
+          explores the struggle against inherited expectations.
+        </p>
+      </div>
+
+      <div class="char-card clan-thunder">
+        <div class="char-header">
+          <span class="char-emoji">🐈</span>
+          <div>
+            <h3>Squirrelflight <span class="char-status status-living">Living</span></h3>
+            <div class="char-rank">Deputy of ThunderClan</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Father</span> Firestar</li>
+          <li><span class="label">Mother</span> Sandstorm</li>
+          <li><span class="label">Clan</span> ThunderClan</li>
+          <li><span class="label">Pelt</span> Dark ginger, green eyes</li>
+          <li><span class="label">Sister</span> Leafpool</li>
+          <li><span class="label">Mate</span> Bramblestar</li>
+        </ul>
+        <p class="char-desc">
+          Firestar's spirited and bold daughter. She journeyed with the questing cats in <em>The New
+          Prophecy</em> arc and became deputy of ThunderClan. Known for her fierce independence and
+          deep loyalty to those she loves.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ===== SHADOWCLAN CHARACTERS ===== -->
+    <div class="section-divider">🌑 ShadowClan</div>
+    <div class="char-grid">
+
+      <div class="char-card clan-shadow">
+        <div class="char-header">
+          <span class="char-emoji">🐆</span>
+          <div>
+            <h3>Tigerstar <span class="char-status status-dark">Dark Forest</span></h3>
+            <div class="char-rank">Leader of ShadowClan / TigerClan</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Born name</span> Tigerclaw</li>
+          <li><span class="label">Clan</span> ThunderClan → ShadowClan</li>
+          <li><span class="label">Pelt</span> Dark brown tabby, amber eyes</li>
+          <li><span class="label">Kits</span> Bramblestar, Tawnypelt (w/ Goldenflower); Hawkfrost, Mothwing (w/ Sasha)</li>
+          <li><span class="label">Rank</span> Warrior → Exiled → ShadowClan Leader</li>
+        </ul>
+        <p class="char-desc">
+          Once ThunderClan's deputy, Tigerstar was exiled for treachery and ambition. He seized control of
+          ShadowClan and attempted to unite the forest under his tyrannical rule. He is the primary villain
+          of the original arc and one of the most iconic antagonists in the series.
+        </p>
+      </div>
+
+      <div class="char-card clan-shadow">
+        <div class="char-header">
+          <span class="char-emoji">🐈‍⬛</span>
+          <div>
+            <h3>Tawnypelt <span class="char-status status-living">Living</span></h3>
+            <div class="char-rank">Senior Warrior of ShadowClan</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Father</span> Tigerstar</li>
+          <li><span class="label">Mother</span> Goldenflower</li>
+          <li><span class="label">Clan</span> ThunderClan → ShadowClan</li>
+          <li><span class="label">Pelt</span> Tortoiseshell, green eyes</li>
+          <li><span class="label">Brother</span> Bramblestar</li>
+        </ul>
+        <p class="char-desc">
+          Tigerstar's daughter who chose ShadowClan to forge her own identity, free from her father's shadow.
+          She is known for her fierce independence and proving her loyalty to ShadowClan above all else.
+          One of the chosen four who received the new prophecy.
+        </p>
+      </div>
+
+      <div class="char-card clan-shadow">
+        <div class="char-header">
+          <span class="char-emoji">🐱</span>
+          <div>
+            <h3>Yellowfang <span class="char-status status-starclan">StarClan</span></h3>
+            <div class="char-rank">Medicine Cat</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Clan</span> ShadowClan → ThunderClan</li>
+          <li><span class="label">Pelt</span> Dark grey, scarred face, orange eyes</li>
+          <li><span class="label">Former role</span> ShadowClan Medicine Cat</li>
+          <li><span class="label">Kit</span> Brokenstar (secret)</li>
+          <li><span class="label">Specialty</span> Healing, wisdom, sharp wit</li>
+        </ul>
+        <p class="char-desc">
+          A gruff but compassionate medicine cat who left ShadowClan under Brokenstar's cruelty. She joined
+          ThunderClan and mentored Cinderpelt. Her tragic backstory, including her secret son Brokenstar, is
+          explored in the super edition <em>Yellowfang's Secret</em>.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ===== WINDCLAN CHARACTERS ===== -->
+    <div class="section-divider">💨 WindClan</div>
+    <div class="char-grid">
+
+      <div class="char-card clan-wind">
+        <div class="char-header">
+          <span class="char-emoji">🐇</span>
+          <div>
+            <h3>Tallstar <span class="char-status status-starclan">StarClan</span></h3>
+            <div class="char-rank">Leader of WindClan</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Clan</span> WindClan</li>
+          <li><span class="label">Pelt</span> Black and white, dark amber eyes</li>
+          <li><span class="label">Rank</span> Warrior → Leader</li>
+          <li><span class="label">Notable</span> Longest-reigning WindClan leader</li>
+          <li><span class="label">Ally</span> Close friends with Firestar</li>
+        </ul>
+        <p class="char-desc">
+          One of the most respected leaders in Clan history, Tallstar ruled WindClan for many seasons and
+          was known for his fairness and wisdom. His complex personal history is explored in
+          <em>Tallstar's Revenge</em>. He appointed Onewhisker his successor with his final breaths.
+        </p>
+      </div>
+
+      <div class="char-card clan-wind">
+        <div class="char-header">
+          <span class="char-emoji">🌬️</span>
+          <div>
+            <h3>Crowfeather <span class="char-status status-living">Living</span></h3>
+            <div class="char-rank">Senior Warrior of WindClan</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Clan</span> WindClan</li>
+          <li><span class="label">Pelt</span> Dark grey, almost black; blue eyes</li>
+          <li><span class="label">Kits</span> Hollyleaf, Jayfeather, Lionblaze (w/ Leafpool); Breezepelt (w/ Nightcloud)</li>
+          <li><span class="label">Notable</span> One of the four chosen cats of the new prophecy</li>
+        </ul>
+        <p class="char-desc">
+          A brooding but loyal WindClan warrior who was chosen for the journey to sun-drown-place. He fell
+          in love with ThunderClan medicine cat Leafpool — a relationship forbidden by the warrior code —
+          and their secret kits became central characters in later arcs.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ===== RIVERCLAN CHARACTERS ===== -->
+    <div class="section-divider">🌊 RiverClan</div>
+    <div class="char-grid">
+
+      <div class="char-card clan-river">
+        <div class="char-header">
+          <span class="char-emoji">🐟</span>
+          <div>
+            <h3>Mistystar <span class="char-status status-living">Living</span></h3>
+            <div class="char-rank">Leader of RiverClan</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Mother</span> Bluestar</li>
+          <li><span class="label">Father</span> Oakheart (RiverClan)</li>
+          <li><span class="label">Clan</span> RiverClan</li>
+          <li><span class="label">Pelt</span> Blue-grey, blue eyes</li>
+          <li><span class="label">Brother</span> Stonefur (deceased)</li>
+        </ul>
+        <p class="char-desc">
+          Daughter of Bluestar, raised in RiverClan. A steady, fair leader who survived many upheavals
+          including the reign of Leopardstar. Mistystar represents continuity and calm wisdom in the
+          RiverClan line of leadership.
+        </p>
+      </div>
+
+      <div class="char-card clan-river">
+        <div class="char-header">
+          <span class="char-emoji">🐈</span>
+          <div>
+            <h3>Crookedstar <span class="char-status status-starclan">StarClan</span></h3>
+            <div class="char-rank">Leader of RiverClan</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Born name</span> Stormkit / Crookedpaw</li>
+          <li><span class="label">Clan</span> RiverClan</li>
+          <li><span class="label">Pelt</span> Light brown tabby, crooked jaw</li>
+          <li><span class="label">Mate</span> Willowbreeze</li>
+          <li><span class="label">Kit</span> Silverstream</li>
+        </ul>
+        <p class="char-desc">
+          Broke his jaw as a kit and was disfigured for life, yet rose to become a beloved and honorable
+          leader. His origin story — involving a dark bargain with Mapleshade — is told in
+          <em>Crookedstar's Promise</em>. Silverstream's father and a key figure in RiverClan history.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ===== NOTABLE LONERS & OTHERS ===== -->
+    <div class="section-divider">⭐ StarClan, Loners & Notable Others</div>
+    <div class="char-grid">
+
+      <div class="char-card clan-star">
+        <div class="char-header">
+          <span class="char-emoji">⭐</span>
+          <div>
+            <h3>Jayfeather <span class="char-status status-living">Living</span></h3>
+            <div class="char-rank">ThunderClan Medicine Cat</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Parents</span> Crowfeather & Leafpool (secret)</li>
+          <li><span class="label">Clan</span> ThunderClan</li>
+          <li><span class="label">Pelt</span> Grey tabby, blind blue eyes</li>
+          <li><span class="label">Siblings</span> Lionblaze, Hollyleaf</li>
+          <li><span class="label">Power</span> Can walk in other cats' dreams</li>
+        </ul>
+        <p class="char-desc">
+          Born blind, Jayfeather became ThunderClan's medicine cat and one of the Three cats of the
+          Great Prophecy. His ability to enter other cats' dreams makes him uniquely connected to StarClan.
+          He is sharp-tongued, impatient, but deeply gifted.
+        </p>
+      </div>
+
+      <div class="char-card clan-star">
+        <div class="char-header">
+          <span class="char-emoji">🦁</span>
+          <div>
+            <h3>Lionblaze <span class="char-status status-living">Living</span></h3>
+            <div class="char-rank">ThunderClan Warrior</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Parents</span> Crowfeather & Leafpool (secret)</li>
+          <li><span class="label">Clan</span> ThunderClan</li>
+          <li><span class="label">Pelt</span> Golden tabby, amber eyes</li>
+          <li><span class="label">Mate</span> Cinderheart</li>
+          <li><span class="label">Power</span> Cannot be hurt in battle</li>
+        </ul>
+        <p class="char-desc">
+          One of the Three of the Great Prophecy. Lionblaze possesses the power to fight without injury —
+          an ability that made him a fearsome warrior. His arc explores the psychological burden of
+          feeling invincible and the threat to his clan's survival.
+        </p>
+      </div>
+
+      <div class="char-card">
+        <div class="char-header">
+          <span class="char-emoji">🐍</span>
+          <div>
+            <h3>Scourge <span class="char-status status-deceased">Deceased</span></h3>
+            <div class="char-rank">Leader of BloodClan</div>
+          </div>
+        </div>
+        <ul class="char-facts">
+          <li><span class="label">Born name</span> Tiny (kittypet)</li>
+          <li><span class="label">Clan</span> BloodClan (Twolegplace)</li>
+          <li><span class="label">Pelt</span> Small, black, ice-blue eyes</li>
+          <li><span class="label">Collar</span> Studded with teeth and claws</li>
+          <li><span class="label">Notable</span> Killed Tigerstar; defeated by Firestar</li>
+        </ul>
+        <p class="char-desc">
+          A tiny but terrifying rogue cat who built an army of street cats in Twolegplace. He is notable for
+          killing Tigerstar (all nine lives at once) and leading BloodClan into the forest. His origin as a
+          frightened kittypet named Tiny is explored in <em>The Rise of Scourge</em> manga.
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <p>
+      🐾 <strong>Warriors Cats Fan Site</strong> — An unofficial fan tribute.<br />
+      Not affiliated with Working Partners Ltd., HarperCollins, or the Erin Hunter author team.<br />
+      All character names are the intellectual property of their respective owners.<br />
+      For official content, visit <a href="https://www.warriorcats.com" target="_blank" rel="noopener">warriorcats.com</a>.
+    </p>
+  </footer>
+
+</body>
+</html>
