@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Series — Warriors Cats Fan Site</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .arc-number {
+      display: inline-block;
+      background: rgba(200,134,10,0.25);
+      color: var(--amber-light);
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      border: 1px solid rgba(200,134,10,0.4);
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+    .arc-pov {
+      font-size: 0.8rem;
+      color: var(--parchment);
+      opacity: 0.65;
+      margin-bottom: 0.8rem;
+      font-style: italic;
+    }
+
+    .books-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .books-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.4rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--amber) 0%, rgba(200,134,10,0.2) 100%);
+      border-radius: 2px;
+    }
+    .timeline-arc {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .timeline-arc::before {
+      content: '';
+      position: absolute;
+      left: -1.75rem;
+      top: 1.4rem;
+      width: 12px;
+      height: 12px;
+      background: var(--amber);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(200,134,10,0.6);
+    }
+
+    .reading-order-box {
+      background: rgba(45,74,45,0.5);
+      border: 1px solid rgba(200,134,10,0.3);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .reading-order-box h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--amber-light);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .order-steps {
+      list-style: none;
+      counter-reset: step-counter;
+    }
+    .order-steps li {
+      counter-increment: step-counter;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 0.5rem 0;
+      font-size: 0.88rem;
+      color: var(--parchment);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      line-height: 1.5;
+    }
+    .order-steps li:last-child { border-bottom: none; }
+    .order-steps li::before {
+      content: counter(step-counter);
+      background: rgba(74,124,74,0.4);
+      color: #88ff88;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      min-width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .super-editions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .super-ed-card {
+      background: rgba(136,102,204,0.1);
+      border: 1px solid rgba(136,102,204,0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      transition: all 0.25s ease;
+    }
+    .super-ed-card:hover {
+      border-color: rgba(136,102,204,0.6);
+      box-shadow: 0 4px 16px rgba(136,102,204,0.15);
+      transform: translateY(-2px);
+    }
+    .super-ed-card .se-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      color: #bb99ff;
+      margin-bottom: 0.3rem;
+    }
+    .super-ed-card .se-pov {
+      font-size: 0.78rem;
+      color: var(--parchment);
+      opacity: 0.7;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======= HEADER ======= -->
+  <header>
+    <nav>
+      <a class="nav-logo" href="index.html">
+        <span class="paw">🐾</span> Warriors Cats
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="clans.html">The Clans</a></li>
+        <li><a href="characters.html">Characters</a></li>
+        <li><a href="books.html" class="active">Book Series</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ======= HERO ======= -->
+  <section class="hero">
+    <span class="hero-icon">📚</span>
+    <h1>Book Series</h1>
+    <p class="subtitle">Over 80 books. Seven main arcs. One legendary world.</p>
+    <span class="disclaimer-badge">⚠ Unofficial Fan Site — Not affiliated with Working Partners Ltd. or HarperCollins</span>
+  </section>
+
+  <!-- ======= MAIN ======= -->
+  <main>
+
+    <p class="intro-text">
+      The Warriors universe is vast, spanning seven main novel series, multiple super editions, novellas,
+      manga, and field guides. The core series follows different cat protagonists across the generations,
+      building a rich and interconnected world. This guide covers each arc, its point-of-view characters,
+      and a brief overview of its themes — without spoiling the stories.
+    </p>
+
+    <!-- READING ORDER TIP -->
+    <div class="reading-order-box">
+      <h3>🐾 Where to Start — Recommended Reading Order</h3>
+      <ol class="order-steps">
+        <li><strong>The Prophecies Begin</strong> (Arc 1) — Start here. This is the original series and introduces the world, Clans, and core characters.</li>
+        <li><strong>The New Prophecy</strong> (Arc 2) — Continues directly after Arc 1 with a new generation of protagonists.</li>
+        <li><strong>Power of Three</strong> (Arc 3) — Follows the grandchildren of key characters from Arc 1.</li>
+        <li><strong>Omen of the Stars</strong> (Arc 4) — Concludes the storyline began in Arc 3. Best read immediately after Arc 3.</li>
+        <li><strong>Dawn of the Clans</strong> (Arc 5) — A prequel series; can be read any time after Arc 1.</li>
+        <li><strong>A Vision of Shadows</strong> (Arc 6) — A new generation story continuing from Arc 4.</li>
+        <li><strong>The Broken Code</strong> (Arc 7) — The most recent main arc. Read after Arc 6.</li>
+      </ol>
+    </div>
+
+    <!-- TIMELINE / ARCS -->
+    <section style="margin-top: 2.5rem;">
+      <h2 class="section-title">Main Series Arcs</h2>
+
+      <div class="books-timeline">
+
+        <!-- ARC 1 -->
+        <div class="timeline-arc arc-card">
+          <h3><span class="arc-number">Arc 1</span> The Prophecies Begin</h3>
+          <p class="arc-meta">Published: 2003–2004 &nbsp;|&nbsp; 6 books</p>
+          <p class="arc-pov">Protagonist: Firestar (Rusty → Firepaw → Fireheart → Firestar)</p>
+          <p class="arc-desc">
+            The original Warriors series that started it all. A young house cat named Rusty is invited to
+            join ThunderClan and must prove himself in a world of ancient traditions, inter-Clan rivalries,
+            and hidden dangers. This arc introduces the warrior code, the four Clans, and the spirit worlds
+            of StarClan and the Dark Forest.
+          </p>
+          <div class="book-list">
+            <span class="book-tag">Into the Wild</span>
+            <span class="book-tag">Fire and Ice</span>
+            <span class="book-tag">Forest of Secrets</span>
+            <span class="book-tag">Rising Storm</span>
+            <span class="book-tag">A Dangerous Path</span>
+            <span class="book-tag">The Darkest Hour</span>
+          </div>
+        </div>
+
+        <!-- ARC 2 -->
+        <div class="timeline-arc arc-card">
+          <h3><span class="arc-number">Arc 2</span> The New Prophecy</h3>
+          <p class="arc-meta">Published: 2005–2006 &nbsp;|&nbsp; 6 books</p>
+          <p class="arc-pov">Protagonists: Brambleclaw, Feathertail, Stormfur, Tawnypelt, Crowpaw, Squirrelpaw</p>
+          <p class="arc-desc">
+            A new generation of cats receives a prophecy that sends them on a great journey beyond the
+            forest. When they return, the Clans face the loss of their home territory and must make the
+            dangerous journey to a new home by the lake — a journey that will change Clan life forever.
+          </p>
+          <div class="book-list">
+            <span class="book-tag">Midnight</span>
+            <span class="book-tag">Moonrise</span>
+            <span class="book-tag">Dawn</span>
+            <span class="book-tag">Starlight</span>
+            <span class="book-tag">Twilight</span>
+            <span class="book-tag">Sunset</span>
+          </div>
+        </div>
+
+        <!-- ARC 3 -->
+        <div class="timeline-arc arc-card">
+          <h3><span class="arc-number">Arc 3</span> Power of Three</h3>
+          <p class="arc-meta">Published: 2007–2009 &nbsp;|&nbsp; 6 books</p>
+          <p class="arc-pov">Protagonists: Jayfeather, Lionblaze, Hollyleaf</p>
+          <p class="arc-desc">
+            Firestar's grandchildren — Jayfeather, Lionblaze, and Hollyleaf — discover they each carry
+            special powers. An ancient prophecy says they hold the power of the stars in their paws. As
+            they explore their abilities, dark secrets about their true parentage begin to unravel.
+          </p>
+          <div class="book-list">
+            <span class="book-tag">The Sight</span>
+            <span class="book-tag">Dark River</span>
+            <span class="book-tag">Outcast</span>
+            <span class="book-tag">Eclipse</span>
+            <span class="book-tag">Long Shadows</span>
+            <span class="book-tag">Sunrise</span>
+          </div>
+        </div>
+
+        <!-- ARC 4 -->
+        <div class="timeline-arc arc-card">
+          <h3><span class="arc-number">Arc 4</span> Omen of the Stars</h3>
+          <p class="arc-meta">Published: 2009–2012 &nbsp;|&nbsp; 6 books</p>
+          <p class="arc-pov">Protagonists: Jayfeather, Lionblaze, Dovewing</p>
+          <p class="arc-desc">
+            The Great Battle between the living Clans and the cats of the Dark Forest approaches. Dovewing,
+            a young ThunderClan warrior with extraordinary senses, discovers her role as the third of the
+            Three. The series builds to a massive confrontation that will determine the fate of all the Clans.
+          </p>
+          <div class="book-list">
+            <span class="book-tag">The Fourth Apprentice</span>
+            <span class="book-tag">Fading Echoes</span>
+            <span class="book-tag">Night Whispers</span>
+            <span class="book-tag">Sign of the Moon</span>
+            <span class="book-tag">The Forgotten Warrior</span>
+            <span class="book-tag">The Last Hope</span>
+          </div>
+        </div>
+
+        <!-- ARC 5 -->
+        <div class="timeline-arc arc-card">
+          <h3><span class="arc-number">Arc 5</span> Dawn of the Clans</h3>
+          <p class="arc-meta">Published: 2013–2015 &nbsp;|&nbsp; 6 books</p>
+          <p class="arc-pov">Protagonists: Thunder, Gray Wing, Clear Sky</p>
+          <p class="arc-desc">
+            A prequel series set long before the events of the original arc. It follows a group of mountain
+            cats who descend to the forest and eventually form the four Clans. This arc explores the origins
+            of the warrior code, StarClan, and the founding leaders — Thunderstar, Shadowstar, Windstar,
+            and Riverstar.
+          </p>
+          <div class="book-list">
+            <span class="book-tag">The Sun Trail</span>
+            <span class="book-tag">Thunder Rising</span>
+            <span class="book-tag">The First Battle</span>
+            <span class="book-tag">The Blazing Star</span>
+            <span class="book-tag">A Forest Divided</span>
+            <span class="book-tag">Path of Stars</span>
+          </div>
+        </div>
+
+        <!-- ARC 6 -->
+        <div class="timeline-arc arc-card">
+          <h3><span class="arc-number">Arc 6</span> A Vision of Shadows</h3>
+          <p class="arc-meta">Published: 2016–2018 &nbsp;|&nbsp; 6 books</p>
+          <p class="arc-pov">Protagonist: Alderheart</p>
+          <p class="arc-desc">
+            A new prophecy calls on ThunderClan's young medicine cat Alderheart to find the lost SkyClan — a
+            fifth Clan that was driven from the forest long ago. This arc reintroduces SkyClan as a major
+            player in Clan politics and culminates in all five Clans sharing territory by the lake.
+          </p>
+          <div class="book-list">
+            <span class="book-tag">The Apprentice's Quest</span>
+            <span class="book-tag">Thunder and Shadow</span>
+            <span class="book-tag">Shattered Sky</span>
+            <span class="book-tag">Darkest Night</span>
+            <span class="book-tag">River of Fire</span>
+            <span class="book-tag">The Raging Storm</span>
+          </div>
+        </div>
+
+        <!-- ARC 7 -->
+        <div class="timeline-arc arc-card">
+          <h3><span class="arc-number">Arc 7</span> The Broken Code</h3>
+          <p class="arc-meta">Published: 2019–2021 &nbsp;|&nbsp; 6 books</p>
+          <p class="arc-pov">Protagonists: Shadowsight, Bristlefrost, Rootspring</p>
+          <p class="arc-desc">
+            A strange darkness threatens to tear the Clans apart from within. An impostor controls a
+            leader's body, StarClan goes silent, and three young cats from different Clans must work
+            together to uncover the truth and save both the living and spirit worlds. The most recent
+            completed main arc.
+          </p>
+          <div class="book-list">
+            <span class="book-tag">Lost Stars</span>
+            <span class="book-tag">The Silent Thaw</span>
+            <span class="book-tag">Veil of Shadows</span>
+            <span class="book-tag">Darkness Within</span>
+            <span class="book-tag">The Place of No Stars</span>
+            <span class="book-tag">A Light in the Mist</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SUPER EDITIONS -->
+    <section>
+      <h2 class="section-title">Super Editions</h2>
+      <p class="intro-text">
+        Super editions are standalone, full-length novels that focus on a single character — often exploring
+        backstories of beloved cats from the main series. They can be read alongside or after the main arcs.
+      </p>
+      <div class="super-editions-grid">
+        <div class="super-ed-card">
+          <p class="se-title">Firestar's Quest</p>
+          <p class="se-pov">POV: Firestar — the search for SkyClan</p>
+        </div>
+        <div class="super-ed-card">
+          <p class="se-title">Bluestar's Prophecy</p>
+          <p class="se-pov">POV: Bluestar — her rise to leadership</p>
+        </div>
+        <div class="super-ed-card">
+          <p class="se-title">SkyClan's Destiny</p>
+          <p class="se-pov">POV: Leafstar — rebuilding SkyClan</p>
+        </div>
+        <div class="super-ed-card">
+          <p class="se-title">Crookedstar's Promise</p>
+          <p class="se-pov">POV: Crookedstar — RiverClan leader's origin</p>
+        </div>
+        <div class="super-ed-card">
+          <p class="se-title">Yllowfang's Secret</p>
+          <p class="se-pov">POV: Yellowfang — medicine cat's tragic past</p>
+        </div>
+        <div class="super-ed-card">
+          <p class="se-title">Tallstar's Revenge</p>
+          <p class="se-pov">POV: Tallstar — WindClan's long-lived leader</p>
+        </div>
+        <div class="super-ed-card">
+          <p class="se-title">Bramblestar's Storm</p>
+          <p class="se-pov">POV: Bramblestar — aftermath of the Great Battle</p>
+        </div>
+        <div class="super-ed-card">
+          <p class="se-title">Moth Flight's Vision</p>
+          <p class="se-pov">POV: Moth Flight — origin of medicine cats</p>
+        </div>
+        <div class="super-ed-card">
+          <p class="se-title">Hawkwing's Journey</p>
+          <p class="se-pov">POV: Hawkwing — SkyClan's quest to find others</p>
+        </div>
+        <div class="super-ed-card">
+          <p class="se-title">Tigerheart's Shadow</p>
+          <p class="se-pov">POV: Tigerheart — ShadowClan deputy's journey</p>
+        </div>
+        <div class="super-ed-card">
+          <p class="se-title">Crowfeather's Trial</p>
+          <p class="se-pov">POV: Crowfeather — WindClan warrior's inner struggle</p>
+        </div>
+        <div class="super-ed-card">
+          <p class="se-title">Squirrelflight's Hope</p>
+          <p class="se-pov">POV: Squirrelflight — a journey to the Sisters</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADDITIONAL CONTENT -->
+    <section>
+      <h2 class="section-title">More Warriors Content</h2>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-icon">📖</pan>
+          <h3>Novellas</h3>
+          <p>Short stories focused on specific characters — Hollyleaf's Story, Mistystar's Omen, Cloudstar's Journey, and many more. Available individually or in bind-ups.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🎨</span>
+          <h3>Manga</h3>
+          <p>Graphic novel adaptations including <em>The Rise of Scourge</em>, the <em>Tigerstar and Sasha</em> trilogy, and <em>Ravenpaw's Path</em>.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🗻️</span>
+          <h3>Field Guides</h3>
+          <p>Reference books like <em>Secrets of the Clans</em>, <em>Cats of the Clans</em>, <em>Code of the Clans</em>, and <em>Battles of the Clans</em> — encyclopedic companion volumes.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <p>
+      🐾 <strong>Warriors Cats Fan Site</strong> └ An unofficial fan tribute.<br />
+      Not affiliated with Working Partners Ltd., HarperCollins, or the Erin Hunter author team.<br />
+      All book titles and character names are the intellectual property of their respective owners.<br />
+      For official content and the latest releases, visit
+      <a href="https://www.warriorcats.com" target="_blank" rel="noopener">warriorcats.com</a>.
+    </p>
+  </footer>
+
+</body>
+</html>
