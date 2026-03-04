@@ -30,13 +30,12 @@
       border-color: var(--amber);
       color: var(--amber-light);
     }
-
     .char-status {
       display: inline-block;
-      font-size: 0.68rem;
-      padding: 0.15rem 0.5rem;
+      font-size: 0.65rem;
+      padding: 0.12rem 0.45rem;
       border-radius: 3px;
-      margin-left: 0.4rem;
+      margin-left: 0.35rem;
       vertical-align: middle;
     }
     .status-living   { background: rgba(74,124,74,0.3); color: #88ff88; border: 1px solid rgba(74,124,74,0.5); }
@@ -44,34 +43,85 @@
     .status-starclan { background: rgba(136,102,204,0.3); color: #cc99ff; border: 1px solid rgba(136,102,204,0.5); }
     .status-dark     { background: rgba(80,0,0,0.4); color: #ff8888; border: 1px solid rgba(120,0,0,0.5); }
 
-    .char-desc {
-      font-size: 0.85rem;
-      color: var(--parchment);
-      opacity: 0.85;
-      line-height: 1.65;
-      margin-top: 0.8rem;
-      padding-top: 0.8rem;
-      border-top: 1px solid rgba(255,255,255,0.07);
-    }
-
     .section-divider {
       font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       letter-spacing: 0.1em;
       color: var(--amber);
       text-transform: uppercase;
       display: flex;
       align-items: center;
       gap: 0.8rem;
-      margin: 2.5rem 0 1.2rem;
+      margin: 3rem 0 1rem;
     }
     .section-divider::before,
     .section-divider::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: rgba(200,134,10,0.3);
+      background: rgba(200,134,10,0.35);
     }
+
+    .sub-divider {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--parchment);
+      opacity: 0.65;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 1.4rem 0 0.7rem;
+    }
+    .sub-divider::before,
+    .sub-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Compact roster grid */
+    .roster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+      gap: 0.55rem;
+      margin-bottom: 1rem;
+    }
+    .roster-card {
+      background: rgba(18,32,18,0.75);
+      border: 1px solid rgba(200,134,10,0.12);
+      border-radius: 6px;
+      padding: 0.65rem 0.9rem;
+      border-left: 3px solid rgba(200,134,10,0.2);
+    }
+    .roster-card h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      margin: 0 0 0.18rem 0;
+      color: var(--amber-light);
+      line-height: 1.3;
+    }
+    .roster-card .roster-role {
+      font-size: 0.74rem;
+      color: var(--parchment);
+      opacity: 0.72;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* Clan border colours */
+    .rc-thunder { border-left-color: rgba(255,120,30,0.55); }
+    .rc-shadow  { border-left-color: rgba(140,60,200,0.5); }
+    .rc-wind    { border-left-color: rgba(200,185,50,0.5); }
+    .rc-river   { border-left-color: rgba(50,140,210,0.55); }
+    .rc-sky     { border-left-color: rgba(60,190,130,0.55); }
+    .rc-star    { border-left-color: rgba(160,120,255,0.5); }
+    .rc-dark    { border-left-color: rgba(160,30,30,0.6); }
+    .rc-ancient { border-left-color: rgba(200,160,60,0.5); }
+    .rc-tribe   { border-left-color: rgba(60,180,180,0.5); }
+    .rc-loner   { border-left-color: rgba(160,160,160,0.4); }
   </style>
 </head>
 <body>
@@ -95,7 +145,7 @@
   <section class="hero">
     <span class="hero-icon">🐱</span>
     <h1>Characters</h1>
-    <p class="subtitle">The cats who shaped the destiny of the Clans.</p>
+    <p class="subtitle">Every cat who shaped the destiny of the Clans.</p>
     <span class="disclaimer-badge">⚠ Unofficial Fan Site — Not affiliated with Working Partners Ltd. or HarperCollins</span>
   </section>
 
@@ -103,349 +153,1657 @@
   <main>
 
     <p class="intro-text">
-      The Warriors series features hundreds of memorable characters across its many books. Below are profiles
-      of key cats — organized by Clan — with factual details drawn from across the series. All information
-      is encyclopedic in nature (names, ranks, family ties, notable roles).
+      The Warriors series spans hundreds of books and features an enormous cast of characters across all Clans, eras, and walks of life.
+      This roster covers named cats from the main arcs, super editions, novellas, and prequel series — organized by Clan affiliation.
+      Status badges reflect each character's fate as of their last appearance.
     </p>
 
-    <!-- ===== THUNDERCLAN CHARACTERS ===== -->
-    <div class="section-divider">🔥 ThunderClan</div>
-    <div class="char-grid">
+    <!-- ══════════════════════════════════════
+         THUNDERCLAN
+    ══════════════════════════════════════ -->
+    <div class="section-divider">⚡ ThunderClan</div>
 
-      <div class="char-card clan-thunder">
-        <div class="char-header">
-          <span class="char-emoji">🦊</span>
-          <div>
-            <h3>Firestar <span class="char-status status-starclan">StarClan</span></h3>
-            <div class="char-rank">Leader of ThunderClan</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Born name</span> Rusty (kittypet)</li>
-          <li><span class="label">Clan</span> ThunderClan</li>
-          <li><span class="label">Pelt</span> Bright ginger tabby, green eyes</li>
-          <li><span class="label">Mentor</span> Bluestar</li>
-          <li><span class="label">Mate</span> Sandstorm</li>
-          <li><span class="label">Kits</span> Squirrelflight, Leafpool</li>
-          <li><span class="label">Rank</span> Warrior → Deputy → Leader</li>
-        </ul>
-        <p class="char-desc">
-          A former house cat (kittypet) who joined ThunderClan as an apprentice named Firepaw. He rose
-          through the ranks on merit and eventually became one of the most celebrated leaders in Clan history.
-          He is the protagonist of the original Warriors arc.
-        </p>
+    <div class="sub-divider">Leaders</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-thunder">
+        <h4>Thunderstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Founder & First Leader · Originally named Thunder · son of Clear Sky</div>
       </div>
 
-      <div class="char-card clan-thunder">
-        <div class="char-header">
-          <span class="char-emoji">🐈‍⬛</span>
-          <div>
-            <h3>Bluestar <span class="char-status status-starclan">StarClan</span></h3>
-            <div class="char-rank">Leader of ThunderClan</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Born name</span> Bluepaw / Bluefur</li>
-          <li><span class="label">Clan</span> ThunderClan</li>
-          <li><span class="label">Pelt</span> Blue-grey, ice-blue eyes</li>
-          <li><span class="label">Sister</span> Snowfur</li>
-          <li><span class="label">Kits</span> Mistyfoot, Stonefur, Mosskit</li>
-          <li><span class="label">Rank</span> Warrior → Deputy → Leader</li>
-        </ul>
-        <p class="char-desc">
-          A noble and deeply complex leader who sacrificed her kits to stop a dangerous rival from becoming
-          deputy. She mentored Fireheart and saw greatness in the young kittypet. Her backstory is told in
-          the super edition <em>Bluestar's Prophecy</em>.
-        </p>
+      <div class="roster-card rc-thunder">
+        <h4>Doestar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Ancient Leader · Reigned before Pinestar's era</div>
       </div>
 
-      <div class="char-card clan-thunder">
-        <div class="char-header">
-          <span class="char-emoji">🐱</span>
-          <div>
-            <h3>Bramblestar <span class="char-status status-living">Living</span></h3>
-            <div class="char-rank">Leader of ThunderClan</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Father</span> Tigerstar</li>
-          <li><span class="label">Mother</span> Goldenflower</li>
-          <li><span class="label">Clan</span> ThunderClan</li>
-          <li><span class="label">Pelt</span> Dark brown tabby, amber eyes</li>
-          <li><span class="label">Mate</span> Squirrelflight</li>
-          <li><span class="label">Rank</span> Apprentice → Warrior → Deputy → Leader</li>
-        </ul>
-        <p class="char-desc">
-          Son of the notorious Tigerstar, Bramblestar chose loyalty and honor over his father's dark legacy.
-          He became a trusted deputy under Firestar and eventually leader of ThunderClan. His storyline
-          explores the struggle against inherited expectations.
-        </p>
+      <div class="roster-card rc-thunder">
+        <h4>Pinestar <span class="char-status status-deceased">Deceased</span></h4>
+        <div class="roster-role">Leader · Tigerstar's father · retired to become a kittypet</div>
       </div>
 
-      <div class="char-card clan-thunder">
-        <div class="char-header">
-          <span class="char-emoji">🐈</span>
-          <div>
-            <h3>Squirrelflight <span class="char-status status-living">Living</span></h3>
-            <div class="char-rank">Deputy of ThunderClan</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Father</span> Firestar</li>
-          <li><span class="label">Mother</span> Sandstorm</li>
-          <li><span class="label">Clan</span> ThunderClan</li>
-          <li><span class="label">Pelt</span> Dark ginger, green eyes</li>
-          <li><span class="label">Sister</span> Leafpool</li>
-          <li><span class="label">Mate</span> Bramblestar</li>
-        </ul>
-        <p class="char-desc">
-          Firestar's spirited and bold daughter. She journeyed with the questing cats in <em>The New
-          Prophecy</em> arc and became deputy of ThunderClan. Known for her fierce independence and
-          deep loyalty to those she loves.
-        </p>
+      <div class="roster-card rc-thunder">
+        <h4>Sunstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Leader · Succeeded Pinestar · led ThunderClan before Bluestar</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Bluestar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Leader · Blue-grey she-cat · mentored Firestar · her story told in <em>Bluestar's Prophecy</em></div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Firestar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Leader · Ginger tabby kittypet-turned-leader · protagonist of the original arc</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Bramblestar <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Leader · Dark brown tabby · son of Tigerstar · Firestar's successor</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Squirrelflight <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Deputy / Acting Leader · Dark ginger · Firestar's daughter · Bramblestar's mate</div>
       </div>
 
     </div>
 
-    <!-- ===== SHADOWCLAN CHARACTERS ===== -->
+    <div class="sub-divider">Medicine Cats</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-thunder">
+        <h4>Goosefeather <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Had powerful visions · Bluestar's uncle · from <em>Goosefeather's Curse</em></div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Featherwhisker <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Goosefeather's apprentice · served under Sunstar and Bluestar</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Spottedleaf <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Tortoiseshell · killed by Clawface · cherished StarClan messenger to Firestar</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Yellowfang <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Originally ShadowClan · joined ThunderClan · Brokenstar's secret mother</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Cinderpelt <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Injured leg prevented warrior path · reincarnated as Cinderheart</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Leafpool <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat → Warrior · Firestar's daughter · secret mother of Jayfeather, Lionblaze, Hollyleaf</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Jayfeather <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Medicine Cat · Born blind · one of the Three · can walk in others' dreams</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Alderheart <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Medicine Cat · Bramblestar's son · protagonist of <em>A Vision of Shadows</em></div>
+      </div>
+
+    </div>
+
+    <div class="sub-divider">Warriors &amp; Notable Members</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-thunder">
+        <h4>Lionheart <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Deputy · Golden tabby · Bluestar's first deputy · killed by ShadowClan</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Whitestorm <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Deputy · White tom · wise senior warrior · killed by Bone in <em>The Darkest Hour</em></div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Graystripe <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Senior Warrior / Deputy · Firestar's loyal best friend · Millie's mate</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Sandstorm <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Senior Warrior · Pale ginger · Firestar's mate · mother of Squirrelflight and Leafpool</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Dustpelt <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Senior Warrior · Dark brown tabby · Ferncloud's mate</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Brackenfur <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Senior Warrior · Golden-brown tabby · briefly served as deputy</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Cloudtail <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Senior Warrior · White tom · Firestar's nephew · Brightheart's mate · disputed StarClan belief</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Brightheart <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Disfigured by dogs · Cloudtail's devoted mate · formerly called Lostface</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Thornclaw <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Senior Warrior · Golden-brown tabby · long-serving ThunderClan member</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Ashfur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Grey tom · bitter after Squirrelflight rejected him · villain in <em>The Broken Code</em></div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Ferncloud <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Pale grey · Dustpelt's mate · devoted mother · died in <em>The Last Hope</em></div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Whitewing <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White she-cat · Cloudtail's daughter · Birchfall's mate</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Birchfall <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Light brown tabby · Whitewing's mate · trained briefly in Dark Forest</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Millie <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Silver tabby · former kittypet · Graystripe's mate</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Mousewhisker <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey-and-white tom · Cloudtail and Brightheart's son</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Berrynose <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Cream-coloured tom · Poppyfrost's mate · lost his tail-tip as a kit</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Poppyfrost <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Tortoiseshell-and-white · Berrynose's mate</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Hollyleaf <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Black she-cat · Crowfeather and Leafpool's daughter · died saving Ivypool</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Lionblaze <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Golden tabby · one of the Three · cannot be harmed in battle</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Cinderheart <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey tabby · Lionblaze's mate · reincarnation of Cinderpelt</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Dovewing <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Pale grey · one of the Three · super-hearing power · later joins ShadowClan</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Ivypool <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Silver-and-white tabby · spied on the Dark Forest for ThunderClan</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Bumblestripe <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey tabby · Graystripe and Millie's son</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Blossomfall <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Tortoiseshell-and-white · Graystripe and Millie's daughter</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Cherryfall <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Ginger she-cat · Daisy's daughter</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Molewhisker <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Brown-and-cream tom · Daisy's son</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Lilyheart <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Small tabby · Seedpaw's littermate</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Seedpaw <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Golden-brown she-cat · drowned in the lake · Lilyheart's sister</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Ambermoon <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Pale ginger she-cat · Cloudtail and Brightheart's daughter</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Snowbush <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · White tom · died from an infected injury</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Dewnose <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey-and-white tom · Cloudtail and Brightheart's son</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Stormcloud <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey tabby · former kittypet named Frankie · joined ThunderClan</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Hollytuft <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black she-cat · Lionblaze and Cinderheart's daughter</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Fernsong <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Yellow tabby tom · Lionblaze and Cinderheart's son · Ivypool's mate</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Leafshade <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Tortoiseshell she-cat · Lionblaze and Cinderheart's daughter</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Honeyfur <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White she-cat with yellow patches</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Sparkpelt <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Orange tabby · Bramblestar and Squirrelflight's daughter</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Larksong <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Black tom · Sparkpelt's mate · died of the mysterious sickness</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Twigbranch <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey she-cat · SkyClan lineage · Finleap's mate · Violetshine's sister</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Finleap <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Brown tom · joined ThunderClan to be with Twigbranch</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Stemleaf <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · White-and-orange tom · killed during the codebreaker conflict</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Spotfur <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Spotted tabby she-cat · Stemleaf's mate</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Flywhisker <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Striped grey she-cat</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Snaptooth <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Golden tabby tom</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Eaglewing <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Ginger she-cat</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Plumstone <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black-and-ginger she-cat</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Shellfur <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Tortoiseshell tom</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Daisy <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Queen · Cream-coloured · former kittypet · raises kits in the nursery</div>
+      </div>
+
+    </div>
+
+    <div class="sub-divider">Elders</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-thunder">
+        <h4>Longtail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · Pale tabby · blinded by a rabbit · Firestar's early rival who later accepted him</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Halftail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · Dark brown tabby · lost half his tail to a badger · Firestar's first mentor's mentor</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Mousefur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · Small dusky brown she-cat · long-serving ThunderClan elder</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Speckletail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · Pale tabby · one of the senior queens during the original arc</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Frostfur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · White she-cat · mother of Cinderpelt, Brackenfur, Thornclaw, and Brightheart</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Patchpelt <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · Small black-and-white tom</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>One-eye <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · Oldest cat in the Clan during the original arc · pale grey she-cat</div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Dappletail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · Tortoiseshell she-cat · ate a poisoned rabbit in <em>A Dangerous Path</em></div>
+      </div>
+
+      <div class="roster-card rc-thunder">
+        <h4>Purdy <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · Loner who joined ThunderClan · guided the three on their journey to the mountains</div>
+      </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         SHADOWCLAN
+    ══════════════════════════════════════ -->
     <div class="section-divider">🌑 ShadowClan</div>
-    <div class="char-grid">
 
-      <div class="char-card clan-shadow">
-        <div class="char-header">
-          <span class="char-emoji">🐆</span>
-          <div>
-            <h3>Tigerstar <span class="char-status status-dark">Dark Forest</span></h3>
-            <div class="char-rank">Leader of ShadowClan / TigerClan</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Born name</span> Tigerclaw</li>
-          <li><span class="label">Clan</span> ThunderClan → ShadowClan</li>
-          <li><span class="label">Pelt</span> Dark brown tabby, amber eyes</li>
-          <li><span class="label">Kits</span> Bramblestar, Tawnypelt (w/ Goldenflower); Hawkfrost, Mothwing (w/ Sasha)</li>
-          <li><span class="label">Rank</span> Warrior → Exiled → ShadowClan Leader</li>
-        </ul>
-        <p class="char-desc">
-          Once ThunderClan's deputy, Tigerstar was exiled for treachery and ambition. He seized control of
-          ShadowClan and attempted to unite the forest under his tyrannical rule. He is the primary villain
-          of the original arc and one of the most iconic antagonists in the series.
-        </p>
+    <div class="sub-divider">Leaders</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-shadow">
+        <h4>Shadowstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Founder · Originally "Tall Shadow" · first ShadowClan leader · from <em>Dawn of the Clans</em></div>
       </div>
 
-      <div class="char-card clan-shadow">
-        <div class="char-header">
-          <span class="char-emoji">🐈‍⬛</span>
-          <div>
-            <h3>Tawnypelt <span class="char-status status-living">Living</span></h3>
-            <div class="char-rank">Senior Warrior of ShadowClan</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Father</span> Tigerstar</li>
-          <li><span class="label">Mother</span> Goldenflower</li>
-          <li><span class="label">Clan</span> ThunderClan → ShadowClan</li>
-          <li><span class="label">Pelt</span> Tortoiseshell, green eyes</li>
-          <li><span class="label">Brother</span> Bramblestar</li>
-        </ul>
-        <p class="char-desc">
-          Tigerstar's daughter who chose ShadowClan to forge her own identity, free from her father's shadow.
-          She is known for her fierce independence and proving her loyalty to ShadowClan above all else.
-          One of the chosen four who received the new prophecy.
-        </p>
+      <div class="roster-card rc-shadow">
+        <h4>Brokenstar <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">Leader · Yellowfang's secret son · trained kits as warriors · cruel tyrant · born Brokentail</div>
       </div>
 
-      <div class="char-card clan-shadow">
-        <div class="char-header">
-          <span class="char-emoji">🐱</span>
-          <div>
-            <h3>Yellowfang <span class="char-status status-starclan">StarClan</span></h3>
-            <div class="char-rank">Medicine Cat</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Clan</span> ShadowClan → ThunderClan</li>
-          <li><span class="label">Pelt</span> Dark grey, scarred face, orange eyes</li>
-          <li><span class="label">Former role</span> ShadowClan Medicine Cat</li>
-          <li><span class="label">Kit</span> Brokenstar (secret)</li>
-          <li><span class="label">Specialty</span> Healing, wisdom, sharp wit</li>
-        </ul>
-        <p class="char-desc">
-          A gruff but compassionate medicine cat who left ShadowClan under Brokenstar's cruelty. She joined
-          ThunderClan and mentored Cinderpelt. Her tragic backstory, including her secret son Brokenstar, is
-          explored in the super edition <em>Yellowfang's Secret</em>.
-        </p>
+      <div class="roster-card rc-shadow">
+        <h4>Nightstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Leader · Briefly led ShadowClan after Brokenstar · never received nine lives due to Brokenstar's curse</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Tigerstar <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">Leader · Dark brown tabby · exiled ThunderClan deputy who seized ShadowClan · primary arc-one villain</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Blackstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Leader · White tom with black paws · formerly Blackfoot, Tigerstar's deputy · long reign</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Rowanstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Leader · Ginger tom · formerly Rowanclaw · Tigerstar II's father · struggled to hold Clan together</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Tigerstar II <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Leader · Dark tabby · born Tigerheart · Rowanstar's son · Dovewing's mate</div>
       </div>
 
     </div>
 
-    <!-- ===== WINDCLAN CHARACTERS ===== -->
+    <div class="sub-divider">Medicine Cats</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-shadow">
+        <h4>Sagewhisker <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Ancient ShadowClan · Yellowfang's mentor</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Runningnose <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Grey-and-white tom · served under Brokenstar and Nightstar · always had a cold</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Littlecloud <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Small tabby · apprenticed to Cinderpelt briefly · long-serving ShadowClan healer</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Flametail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Ginger tom · Rowanstar's son · drowned under the ice</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Puddleshine <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Medicine Cat · Brown-and-white tom · Shadowsight's mentor</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Shadowsight <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Medicine Cat · Tigerstar II and Dovewing's son · key figure in <em>The Broken Code</em></div>
+      </div>
+
+    </div>
+
+    <div class="sub-divider">Warriors &amp; Notable Members</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-shadow">
+        <h4>Tawnypelt <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Senior Warrior · Tortoiseshell · Tigerstar's daughter · chose ShadowClan over her father's legacy</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Darkstripe <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">Warrior · Dark grey tabby · Tigerstar's loyal follower · poisoned Sorrelkit · exiled ThunderClan</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Russetfur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Deputy · Dark ginger she-cat · long-serving deputy under Blackstar · killed by Lionblaze</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Oakfur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Senior Warrior · Small brown tom · long-serving ShadowClan warrior</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Smokefoot <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black tom</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Snowbird <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Pure white she-cat · one of ShadowClan's most prolific queens</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Scorchfur <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Dark grey tom · Snowbird's mate</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Dawnpelt <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Cream-furred she-cat · Rowanstar's daughter · Flametail's sister · killed by Darktail's rogues</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Ratscar <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Scarred brown tom · senior warrior</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Tigerheart <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Deputy → Leader (Tigerstar II) · Rowanstar's son · Dovewing's mate · protagonist of <em>Tigerheart's Shadow</em></div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Pinenose <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black she-cat · queen</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Cloverfoot <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Deputy · Grey tabby she-cat · appointed deputy by Tigerstar II</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Stonewing <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White tom</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Juniperclaw <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">Deputy · Dark grey tom · poisoned RiverClan's fresh-kill · died saving a kit</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Strikestone <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Brown tabby tom · Rowanstar's son</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Whorlpelt <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey-and-white tom</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Hollowspring <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black tom</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Slatefur <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Sleek grey tom</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Grassheart <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Pale brown tabby she-cat</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Berryheart <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black-and-white she-cat · strongly opposed non-Clan-born cats</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Blazefire <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White-and-ginger tom</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Cinnamontail <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Brown tabby she-cat with a cinnamon tail</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Flowerstem <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Silver she-cat</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Gullswoop <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White she-cat</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Spireclaw <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black-and-white tom</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Hopwhisker <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Calico she-cat</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Lightleap <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Brown tabby she-cat · Tigerstar II and Dovewing's daughter</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Pouncestep <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey tabby she-cat · Tigerstar II and Dovewing's daughter</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Needletail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Silver-and-white she-cat · Violetshine's best friend · killed by Darktail's rogues</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Yarrowleaf <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Ginger she-cat · returned after following Darktail's group</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Sleekwhisker <span class="char-status status-deceased">Deceased</span></h4>
+        <div class="roster-role">Warrior · Yellow tabby she-cat · joined Darktail's rogues · fate unknown</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Crowfrost <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Deputy · Black-and-white tom · served briefly · died in <em>A Vision of Shadows</em></div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Boulder <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · Grey tom · former loner who joined ShadowClan in Tigerstar's era</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Cedarheart <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · Dark grey tom</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Kinkfur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Elder · Tabby she-cat with tufted fur</div>
+      </div>
+
+      <div class="roster-card rc-shadow">
+        <h4>Ivytail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Black-and-white she-cat · died in Darktail's attack</div>
+      </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         WINDCLAN
+    ══════════════════════════════════════ -->
     <div class="section-divider">💨 WindClan</div>
-    <div class="char-grid">
 
-      <div class="char-card clan-wind">
-        <div class="char-header">
-          <span class="char-emoji">🐇</span>
-          <div>
-            <h3>Tallstar <span class="char-status status-starclan">StarClan</span></h3>
-            <div class="char-rank">Leader of WindClan</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Clan</span> WindClan</li>
-          <li><span class="label">Pelt</span> Black and white, dark amber eyes</li>
-          <li><span class="label">Rank</span> Warrior → Leader</li>
-          <li><span class="label">Notable</span> Longest-reigning WindClan leader</li>
-          <li><span class="label">Ally</span> Close friends with Firestar</li>
-        </ul>
-        <p class="char-desc">
-          One of the most respected leaders in Clan history, Tallstar ruled WindClan for many seasons and
-          was known for his fairness and wisdom. His complex personal history is explored in
-          <em>Tallstar's Revenge</em>. He appointed Onewhisker his successor with his final breaths.
-        </p>
+    <div class="sub-divider">Leaders</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-wind">
+        <h4>Windstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Founder · Originally Wind Runner · fast and fierce · from <em>Dawn of the Clans</em></div>
       </div>
 
-      <div class="char-card clan-wind">
-        <div class="char-header">
-          <span class="char-emoji">🌬️</span>
-          <div>
-            <h3>Crowfeather <span class="char-status status-living">Living</span></h3>
-            <div class="char-rank">Senior Warrior of WindClan</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Clan</span> WindClan</li>
-          <li><span class="label">Pelt</span> Dark grey, almost black; blue eyes</li>
-          <li><span class="label">Kits</span> Hollyleaf, Jayfeather, Lionblaze (w/ Leafpool); Breezepelt (w/ Nightcloud)</li>
-          <li><span class="label">Notable</span> One of the four chosen cats of the new prophecy</li>
-        </ul>
-        <p class="char-desc">
-          A brooding but loyal WindClan warrior who was chosen for the journey to sun-drown-place. He fell
-          in love with ThunderClan medicine cat Leafpool — a relationship forbidden by the warrior code —
-          and their secret kits became central characters in later arcs.
-        </p>
+      <div class="roster-card rc-wind">
+        <h4>Tallstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Leader · Black-and-white · longest-reigning WindClan leader · <em>Tallstar's Revenge</em></div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Onestar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Leader · Small brown tabby · formerly Onewhisker · Tallstar's chosen successor · father of Darktail</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Harestar <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Leader · Brown-and-white tom · formerly Harespring · current WindClan leader</div>
       </div>
 
     </div>
 
-    <!-- ===== RIVERCLAN CHARACTERS ===== -->
+    <div class="sub-divider">Medicine Cats</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-wind">
+        <h4>Barkface <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Short-tailed brown tom · served for many seasons</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Kestrelflight <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Medicine Cat · Mottled grey tom · current WindClan medicine cat</div>
+      </div>
+
+    </div>
+
+    <div class="sub-divider">Warriors &amp; Notable Members</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-wind">
+        <h4>Deadfoot <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Deputy · Black tom with a twisted paw · served under Tallstar for many years</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Mudclaw <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Mottled dark brown tom · expected to lead after Tallstar · died in failed rebellion</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Tornear <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Grey tabby tom · served as deputy briefly</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Ashfoot <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Deputy · Grey she-cat · Crowfeather's mother · loyal WindClan deputy</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Crowfeather <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Senior Warrior / Deputy · Dark grey · one of the Four · secret father of the Three</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Nightcloud <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black she-cat · Crowfeather's mate · Breezepelt's mother</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Breezepelt <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black tom · Crowfeather and Nightcloud's son · trained in Dark Forest · now redeemed</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Heathertail <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Light brown tabby · former close friend of Lionblaze · mate of Breezepelt</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Gorsetail <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White-and-grey tabby she-cat</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Emberfoot <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey tom with two dark paws</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Leaftail <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Dark tabby tom</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Owlwhisker <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Light brown tabby tom</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Weaselfur <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Ginger tom with a white flash</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Whitetail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Small white she-cat · WindClan elder in later arcs</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Webfoot <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Dark grey tabby tom</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Furzepelt <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey-and-white she-cat</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Crouchfoot <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Ginger tom</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Larkwing <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Pale brown tabby she-cat</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Slightfoot <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black tom with a white flash</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Oatclaw <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Pale brown tabby tom</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Sedgewhisker <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Light brown tabby she-cat</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Fernstripe <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey tabby she-cat</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Smokehaze <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey she-cat</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Brindlewing <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Mottled brown she-cat</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Thriftear <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Dark grey she-cat</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Flutterfoot <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Spotted brown-and-white tom</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Hootwhisker <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Dark grey tom</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Featherpelt <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey tabby she-cat</div>
+      </div>
+
+      <div class="roster-card rc-wind">
+        <h4>Wrenflight <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Golden-brown she-cat</div>
+      </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         RIVERCLAN
+    ══════════════════════════════════════ -->
     <div class="section-divider">🌊 RiverClan</div>
-    <div class="char-grid">
 
-      <div class="char-card clan-river">
-        <div class="char-header">
-          <span class="char-emoji">🐟</span>
-          <div>
-            <h3>Mistystar <span class="char-status status-living">Living</span></h3>
-            <div class="char-rank">Leader of RiverClan</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Mother</span> Bluestar</li>
-          <li><span class="label">Father</span> Oakheart (RiverClan)</li>
-          <li><span class="label">Clan</span> RiverClan</li>
-          <li><span class="label">Pelt</span> Blue-grey, blue eyes</li>
-          <li><span class="label">Brother</span> Stonefur (deceased)</li>
-        </ul>
-        <p class="char-desc">
-          Daughter of Bluestar, raised in RiverClan. A steady, fair leader who survived many upheavals
-          including the reign of Leopardstar. Mistystar represents continuity and calm wisdom in the
-          RiverClan line of leadership.
-        </p>
+    <div class="sub-divider">Leaders</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-river">
+        <h4>Riverstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Founder · Originally River Ripple · calm and wise · from <em>Dawn of the Clans</em></div>
       </div>
 
-      <div class="char-card clan-river">
-        <div class="char-header">
-          <span class="char-emoji">🐈</span>
-          <div>
-            <h3>Crookedstar <span class="char-status status-starclan">StarClan</span></h3>
-            <div class="char-rank">Leader of RiverClan</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Born name</span> Stormkit / Crookedpaw</li>
-          <li><span class="label">Clan</span> RiverClan</li>
-          <li><span class="label">Pelt</span> Light brown tabby, crooked jaw</li>
-          <li><span class="label">Mate</span> Willowbreeze</li>
-          <li><span class="label">Kit</span> Silverstream</li>
-        </ul>
-        <p class="char-desc">
-          Broke his jaw as a kit and was disfigured for life, yet rose to become a beloved and honorable
-          leader. His origin story — involving a dark bargain with Mapleshade — is told in
-          <em>Crookedstar's Promise</em>. Silverstream's father and a key figure in RiverClan history.
-        </p>
+      <div class="roster-card rc-river">
+        <h4>Crookedstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Leader · Light brown tabby · crooked jaw from a kit injury · <em>Crookedstar's Promise</em></div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Leopardstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Leader · Dappled golden tabby · allied with Tigerstar · later repented · <em>Leopardstar's Honor</em></div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Mistystar <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Leader · Blue-grey she-cat · Bluestar's daughter · raised in RiverClan by Oakheart</div>
       </div>
 
     </div>
 
-    <!-- ===== NOTABLE LONERS & OTHERS ===== -->
-    <div class="section-divider">⭐ StarClan, Loners & Notable Others</div>
-    <div class="char-grid">
+    <div class="sub-divider">Medicine Cats</div>
+    <div class="roster-grid">
 
-      <div class="char-card clan-star">
-        <div class="char-header">
-          <span class="char-emoji">⭐</span>
-          <div>
-            <h3>Jayfeather <span class="char-status status-living">Living</span></h3>
-            <div class="char-rank">ThunderClan Medicine Cat</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Parents</span> Crowfeather & Leafpool (secret)</li>
-          <li><span class="label">Clan</span> ThunderClan</li>
-          <li><span class="label">Pelt</span> Grey tabby, blind blue eyes</li>
-          <li><span class="label">Siblings</span> Lionblaze, Hollyleaf</li>
-          <li><span class="label">Power</span> Can walk in other cats' dreams</li>
-        </ul>
-        <p class="char-desc">
-          Born blind, Jayfeather became ThunderClan's medicine cat and one of the Three cats of the
-          Great Prophecy. His ability to enter other cats' dreams makes him uniquely connected to StarClan.
-          He is sharp-tongued, impatient, but deeply gifted.
-        </p>
+      <div class="roster-card rc-river">
+        <h4>Mudfur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Long-haired light brown tom · Leopardstar's father</div>
       </div>
 
-      <div class="char-card clan-star">
-        <div class="char-header">
-          <span class="char-emoji">🦁</span>
-          <div>
-            <h3>Lionblaze <span class="char-status status-living">Living</span></h3>
-            <div class="char-rank">ThunderClan Warrior</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Parents</span> Crowfeather & Leafpool (secret)</li>
-          <li><span class="label">Clan</span> ThunderClan</li>
-          <li><span class="label">Pelt</span> Golden tabby, amber eyes</li>
-          <li><span class="label">Mate</span> Cinderheart</li>
-          <li><span class="label">Power</span> Cannot be hurt in battle</li>
-        </ul>
-        <p class="char-desc">
-          One of the Three of the Great Prophecy. Lionblaze possesses the power to fight without injury —
-          an ability that made him a fearsome warrior. His arc explores the psychological burden of
-          feeling invincible and the threat to his clan's survival.
-        </p>
+      <div class="roster-card rc-river">
+        <h4>Mothwing <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Medicine Cat · Dappled golden tabby · Hawkfrost's sister · does not believe in StarClan</div>
       </div>
 
-      <div class="char-card">
-        <div class="char-header">
-          <span class="char-emoji">🐍</span>
-          <div>
-            <h3>Scourge <span class="char-status status-deceased">Deceased</span></h3>
-            <div class="char-rank">Leader of BloodClan</div>
-          </div>
-        </div>
-        <ul class="char-facts">
-          <li><span class="label">Born name</span> Tiny (kittypet)</li>
-          <li><span class="label">Clan</span> BloodClan (Twolegplace)</li>
-          <li><span class="label">Pelt</span> Small, black, ice-blue eyes</li>
-          <li><span class="label">Collar</span> Studded with teeth and claws</li>
-          <li><span class="label">Notable</span> Killed Tigerstar; defeated by Firestar</li>
-        </ul>
-        <p class="char-desc">
-          A tiny but terrifying rogue cat who built an army of street cats in Twolegplace. He is notable for
-          killing Tigerstar (all nine lives at once) and leading BloodClan into the forest. His origin as a
-          frightened kittypet named Tiny is explored in <em>The Rise of Scourge</em> manga.
-        </p>
+      <div class="roster-card rc-river">
+        <h4>Willowshine <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Grey tabby · Mothwing's apprentice · killed by Ashfur's spirit</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Frostpaw <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Medicine Cat Apprentice · White she-cat · lost her mentor Mothwing · central to <em>A Starless Clan</em></div>
+      </div>
+
+    </div>
+
+    <div class="sub-divider">Warriors &amp; Notable Members</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-river">
+        <h4>Oakheart <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Deputy · Reddish-brown tom · Bluestar's secret mate · killed at Sunningrocks</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Silverstream <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Silver tabby · Crookedstar's daughter · Graystripe's mate · died giving birth</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Stonefur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Deputy · Blue-grey tom · Bluestar's son · killed by Darkstripe for refusing Tigerstar's orders</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Graypool <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Grey she-cat · raised Mistyfoot and Stonefur for Bluestar</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Hawkfrost <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">Warrior · Dark brown tabby · Tigerstar and Sasha's son · Mothwing's brother · killed by Brambleclaw</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Reedwhisker <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Deputy · Black tom · Mistystar's son · long-serving RiverClan deputy</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Blackclaw <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Smoky black tom · long-serving senior warrior</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Heavystep <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Thickset tabby tom</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Loudbelly <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Dark brown tom</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Dawnflower <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Pale grey she-cat</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Mosspelt <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior/Elder · Tortoiseshell-and-white she-cat · long-serving member</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Icewing <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White she-cat · mother of several RiverClan cats</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Mintfur <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Light grey tabby tom</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Duskfur <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Brown tabby she-cat</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Mallownose <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Light brown tabby tom</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Graymist <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Pale grey tabby she-cat</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Petalfur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Grey-and-white she-cat · part of the group sent to find SkyClan</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Podlight <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey-and-white tom</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Shimmerpelt <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black she-cat</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Lizardtail <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Light brown tom</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Havenpelt <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black-and-white she-cat</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Sneezecloud <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey-and-white tom</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Foxnose <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Bright orange she-cat</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Breezeheart <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Brown-and-white she-cat</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Harelight <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White tom</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Owlnose <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Brown tabby tom</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Splashtail <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Brown tabby tom · prominent in <em>A Starless Clan</em></div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Curlfeather <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Pale brown she-cat · Frostpaw's mother · killed by an unknown cat</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Nightsky <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Dark grey she-cat with blue eyes</div>
+      </div>
+
+      <div class="roster-card rc-river">
+        <h4>Gorseclaw <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White tom with grey ears</div>
+      </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         SKYCLAN
+    ══════════════════════════════════════ -->
+    <div class="section-divider">🌿 SkyClan</div>
+
+    <div class="sub-divider">Leaders</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-sky">
+        <h4>Cloudstar <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Ancient Leader · Led SkyClan when driven from the forest · bitter but loyal to his Clan</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Skywatcher <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Last Survivor · Old grey tom · only SkyClan cat remaining when Firestar found the gorge</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Leafstar <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Leader · Brown-and-cream tabby · built the modern SkyClan · <em>SkyClan's Destiny</em> protagonist</div>
+      </div>
+
+    </div>
+
+    <div class="sub-divider">Medicine Cats</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-sky">
+        <h4>Echosong <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Silver tabby she-cat · first medicine cat of the rebuilt SkyClan</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Frecklewish <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Medicine Cat · Spotted tabby · ancient SkyClan · refused to save Mapleshade's kits</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Fidgetflake <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Medicine Cat · Black-and-white tom · current SkyClan medicine cat</div>
+      </div>
+
+    </div>
+
+    <div class="sub-divider">Warriors &amp; Notable Members</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-sky">
+        <h4>Sharpclaw <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Deputy · Dark ginger tom · bold and sometimes aggressive · Leafstar's first deputy</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Hawkwing <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Deputy · Dark grey tom · Twigbranch and Violetshine's father · <em>Hawkwing's Journey</em> protagonist</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Cherrytail <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Tortoiseshell-and-white she-cat · Hawkwing's mother</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Sparrowpelt <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Dark brown tabby tom · Hawkwing's father</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Patchfoot <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Black-and-white tom · early rebuilt-SkyClan warrior</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Clovertail <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Elder · Light brown she-cat · one of the original rebuilt-SkyClan cats</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Tinycloud <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Small white she-cat</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Plumwillow <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Dark grey she-cat · Hawkwing's sister</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Sandynose <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Stocky light brown tom</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Rabbitleap <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Brown tom</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Pigeonfoot <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey-and-white she-cat</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Dewspring <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Sturdy grey tom</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Reedclaw <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Small pale tabby she-cat</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Firefern <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Ginger she-cat · Hawkwing's sister</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Nettlesplash <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Pale brown tom</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Blossomheart <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Ginger-and-white she-cat · Hawkwing's sister</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Bellaleaf <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Pale orange she-cat with green eyes</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Harrybrook <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Grey tom · former kittypet (Harry)</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Ebonyclaw <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Striking black she-cat · day-warrior in early SkyClan</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Billystorm <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Warrior · Ginger-and-white tom · kittypet-warrior · Leafstar's mate</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Violetshine <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Black-and-white she-cat · Hawkwing's daughter · Twigbranch's sister</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Palesky <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White she-cat with black patches</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Nectarsong <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Brown she-cat</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Gravelnose <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Tan tom</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Fringewhisker <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White she-cat with brown patches</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Quailfeather <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · White tom with crow-black ears</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Kitescratch <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Reddish-brown tom</div>
+      </div>
+
+      <div class="roster-card rc-sky">
+        <h4>Parsleyseed <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Warrior · Pale grey tom</div>
+      </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         STARCLAN & DARK FOREST — NOTABLE SPIRITS
+    ══════════════════════════════════════ -->
+    <div class="section-divider">✨ StarClan — Notable Spirits</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-star">
+        <h4>Spottedleaf <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">ThunderClan Medicine Cat · Beloved StarClan messenger · killed by Clawface, then faded when Mapleshade attacked her spirit</div>
+      </div>
+
+      <div class="roster-card rc-star">
+        <h4>Lionheart <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">ThunderClan · Golden tabby deputy · one of Firestar's first mentors in StarClan visits</div>
+      </div>
+
+      <div class="roster-card rc-star">
+        <h4>Whitestorm <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">ThunderClan · Wise white deputy · died battling Bone · honoured by Firestar</div>
+      </div>
+
+      <div class="roster-card rc-star">
+        <h4>Silverstream <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">RiverClan · Graystripe's mate · died delivering Feathertail and Stormfur</div>
+      </div>
+
+      <div class="roster-card rc-star">
+        <h4>Feathertail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">RiverClan · Silver tabby · one of the Four · died killing Sharptooth to save the Tribe</div>
+      </div>
+
+      <div class="roster-card rc-star">
+        <h4>Mosskit <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">ThunderClan · Bluestar's kit · froze to death during the journey to give her siblings to RiverClan</div>
+      </div>
+
+      <div class="roster-card rc-star">
+        <h4>Snowfur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">ThunderClan · White she-cat · Bluestar's sister · Thistleclaw's mate · killed by a monster</div>
+      </div>
+
+      <div class="roster-card rc-star">
+        <h4>Goldenflower <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">ThunderClan · Pale ginger queen · Bramblestar and Tawnypelt's mother</div>
+      </div>
+
+      <div class="roster-card rc-star">
+        <h4>Hollyleaf <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">ThunderClan · Black she-cat · died saving Ivypool from Hawkfrost in the tunnels</div>
+      </div>
+
+      <div class="roster-card rc-star">
+        <h4>Cinderpelt <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">ThunderClan Medicine Cat · Dark grey she-cat · reborn as Cinderheart · killed in a badger attack</div>
+      </div>
+
+    </div>
+
+    <div class="section-divider">🩸 The Dark Forest — Fallen Warriors</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-dark">
+        <h4>Tigerstar <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">ThunderClan/ShadowClan · Primary villain of arc one · raised an army in the Dark Forest</div>
+      </div>
+
+      <div class="roster-card rc-dark">
+        <h4>Brokenstar <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">ShadowClan · Tyrant who trained kits as warriors · Yellowfang's secret son</div>
+      </div>
+
+      <div class="roster-card rc-dark">
+        <h4>Mapleshade <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">ThunderClan-born · Tortoiseshell she-cat · haunted by loss of her kits · vindictive ancient villain</div>
+      </div>
+
+      <div class="roster-card rc-dark">
+        <h4>Hawkfrost <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">RiverClan · Tigerstar and Sasha's son · Mothwing's brother · killed by Brambleclaw</div>
+      </div>
+
+      <div class="roster-card rc-dark">
+        <h4>Thistleclaw <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">ThunderClan · Snowfur's mate · trained Tigerstar · aggressive and ambitious</div>
+      </div>
+
+      <div class="roster-card rc-dark">
+        <h4>Darkstripe <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">ThunderClan · Grey tabby · Tigerstar's loyal follower · attempted to poison Sorrelkit</div>
+      </div>
+
+      <div class="roster-card rc-dark">
+        <h4>Clawface <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">ShadowClan · Killed Spottedleaf · later slain by Yellowfang</div>
+      </div>
+
+      <div class="roster-card rc-dark">
+        <h4>Shredtail <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">ShadowClan · Dark Forest trainer who tormented living apprentices</div>
+      </div>
+
+      <div class="roster-card rc-dark">
+        <h4>Antpelt <span class="char-status status-dark">Dark Forest</span></h4>
+        <div class="roster-role">WindClan · Tricked into training in the Dark Forest · killed there</div>
+      </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         LONERS, ROGUES & BLOODCLAN
+    ══════════════════════════════════════ -->
+    <div class="section-divider">🌙 Loners, Rogues &amp; BloodClan</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-loner">
+        <h4>Scourge <span class="char-status status-deceased">Deceased</span></h4>
+        <div class="roster-role">BloodClan Leader · Small black tom · born Tiny (Firestar's kin) · killed Tigerstar · defeated by Firestar</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Bone <span class="char-status status-deceased">Deceased</span></h4>
+        <div class="roster-role">BloodClan Deputy · Large black-and-white tom · killed Whitestorm · slain by ThunderClan apprentices</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Barley <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Loner · Black-and-white tom · lives on a farm · Ravenpaw's lifelong companion</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Ravenpaw <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Former ThunderClan apprentice · Black tom · fled after witnessing Tigerstar's murder · lived happily with Barley</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Princess <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Kittypet · Light tabby she-cat · Firestar's sister · gave Cloudkit to ThunderClan</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Sol <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Loner · Pale tabby · mysterious and manipulative · turned ShadowClan against StarClan temporarily</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Jake <span class="char-status status-deceased">Deceased</span></h4>
+        <div class="roster-role">Kittypet · Ginger tom · Firestar's father · also father of Scourge · appeared in super editions</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Nutmeg <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Kittypet · Tortoiseshell she-cat · Firestar's mother</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Sasha <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Rogue/Loner · Tawny she-cat · Tigerstar's former mate · mother of Hawkfrost and Mothwing</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Darktail <span class="char-status status-deceased">Deceased</span></h4>
+        <div class="roster-role">Rogue Leader · White tom with black patches · Onestar's son · led the Kin · drowned with Onestar</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Rain <span class="char-status status-deceased">Deceased</span></h4>
+        <div class="roster-role">Rogue · Grey tom · one of Darktail's lieutenants · killed by Darktail himself</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Slash <span class="char-status status-deceased">Deceased</span></h4>
+        <div class="roster-role">Rogue Leader · Pale tabby · antagonist in <em>Dawn of the Clans</em></div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>One Eye <span class="char-status status-deceased">Deceased</span></h4>
+        <div class="roster-role">Rogue · One-eyed tom · villain in <em>Dawn of the Clans</em> · father of Star Flower</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Stormfur <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Former RiverClan · Grey tom · Silverstream's son · eventually settled with the Tribe of Rushing Water</div>
+      </div>
+
+      <div class="roster-card rc-loner">
+        <h4>Brook Where Small Fish Swim <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Tribe of Rushing Water · Brown tabby · Stormfur's mate · joined the lake Clans briefly</div>
+      </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         DAWN OF THE CLANS — ANCIENTS
+    ══════════════════════════════════════ -->
+    <div class="section-divider">🌄 Dawn of the Clans — The Ancient Cats</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-ancient">
+        <h4>Gray Wing <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Protagonist · Dark grey tom · compassionate heart of the mountain group · died of breathing illness</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Clear Sky <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Founder of SkyClan (Skystar) · Light grey tom · Gray Wing's brother · proud and territorial</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Thunder <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Founder of ThunderClan (Thunderstar) · Orange tabby · Clear Sky's son · courageous and just</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>River Ripple <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Founder of RiverClan (Riverstar) · Silver tabby · calm and mysterious · beloved by all groups</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Tall Shadow <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Founder of ShadowClan (Shadowstar) · Black she-cat · originally led the whole mountain group</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Wind Runner <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Founder of WindClan (Windstar) · Lithe brown tabby · fiercely protective of her kits and territory</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Jagged Peak <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Gray Wing's younger brother · injured falling from a mountain · showed great resilience</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Bright Stream <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Mountain cat · Killed by an eagle during the journey · Gray Wing's close friend</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Storm <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Loner · Light grey she-cat · Clear Sky's mate · Thunder's mother · died in a Twoleg structure collapse</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Turtle Tail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Gray Wing's mate · Tortoiseshell she-cat · killed by a monster on a Thunderpath</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Pebble Heart <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Turtle Tail's son · Dark grey tabby · became ShadowClan's first medicine cat</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Owl Eyes <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Turtle Tail's son · Grey tabby with large amber eyes</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Sparrow Fur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Turtle Tail's daughter · Small tortoiseshell · joined SkyClan</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Lightning Tail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Black tom · Thunder's best friend · became first ThunderClan deputy</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Acorn Fur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Chestnut-brown she-cat · Lightning Tail's sister · became first SkyClan medicine cat</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Shattered Ice <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Grey-and-white tabby tom · joined WindClan · Gorse Fur's companion</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Falling Feather <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">White she-cat · Clear Sky follower · killed in a battle between the groups</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Moon Shadow <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Black tom · joined Tall Shadow's group · died of sickness early on</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Fluttering Bird <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Small brown she-cat · Gray Wing's younger sister · died of starvation in the mountains</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Quiet Rain <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Gray Wing and Clear Sky's mother · traveled from the mountains to find her sons</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Star Flower <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Golden she-cat · One Eye's daughter · Clear Sky's mate · played both sides early on</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Gorse Fur <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Thin dark grey tabby tom · Wind Runner's mate · WindClan founder</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Jackdaw's Cry <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Small black tom · part of the original mountain group</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Rainswept Flower <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Grey-and-white tabby she-cat · joined Tall Shadow · kind and gentle</div>
+      </div>
+
+      <div class="roster-card rc-ancient">
+        <h4>Hawk Swoop <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Light brown tabby she-cat · joined Thunder's group · killed in a fox attack</div>
+      </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         THE TRIBE OF RUSHING WATER
+    ══════════════════════════════════════ -->
+    <div class="section-divider">🏔️ The Tribe of Rushing Water</div>
+    <div class="roster-grid">
+
+      <div class="roster-card rc-tribe">
+        <h4>Stoneteller <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Healer &amp; Tribe Leader · Teller of the Pointed Stones · keeper of Tribe lore and omens</div>
+      </div>
+
+      <div class="roster-card rc-tribe">
+        <h4>Feathertail <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">RiverClan visitor · Silver tabby · died killing the mountain lion Sharptooth to save the Tribe</div>
+      </div>
+
+      <div class="roster-card rc-tribe">
+        <h4>Stormfur <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">RiverClan-born · Grey tom · Silverstream's son · settled with the Tribe after many travels</div>
+      </div>
+
+      <div class="roster-card rc-tribe">
+        <h4>Brook Where Small Fish Swim <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Prey-hunter · Brown tabby · Stormfur's mate</div>
+      </div>
+
+      <div class="roster-card rc-tribe">
+        <h4>Crag Where Eagles Nest <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Cave-guard · Dark grey tom · fiercely loyal Tribe defender</div>
+      </div>
+
+      <div class="roster-card rc-tribe">
+        <h4>Talon of Swooping Eagle <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Cave-guard · Large dark brown tabby · experienced Tribe warrior</div>
+      </div>
+
+      <div class="roster-card rc-tribe">
+        <h4>Bird That Rides the Wind <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Prey-hunter · Small tabby she-cat</div>
+      </div>
+
+      <div class="roster-card rc-tribe">
+        <h4>Night of No Stars <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Cave-guard · Black she-cat with one white paw</div>
+      </div>
+
+      <div class="roster-card rc-tribe">
+        <h4>Sheer Path Beside Waterfall <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Cave-guard · Dark grey tabby tom</div>
+      </div>
+
+      <div class="roster-card rc-tribe">
+        <h4>Moss That Grows by River <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Prey-hunter · Small grey she-cat</div>
+      </div>
+
+      <div class="roster-card rc-tribe">
+        <h4>Splash Where Trout Leap <span class="char-status status-living">Living</span></h4>
+        <div class="roster-role">Prey-hunter · Tabby she-cat · skilled fisher</div>
+      </div>
+
+      <div class="roster-card rc-tribe">
+        <h4>Teller of the Pointed Stones <span class="char-status status-starclan">StarClan</span></h4>
+        <div class="roster-role">Former Healer · Previous Stoneteller · appears to current Stoneteller in visions</div>
       </div>
 
     </div>
